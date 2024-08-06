@@ -20,7 +20,6 @@ export default defineConfig({
     Vue({
       template: { transformAssetUrls }
     }),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
       autoImport: true,
       styles: {
@@ -61,6 +60,9 @@ export default defineConfig({
       '.tsx',
       '.vue'
     ]
+  },
+  optimizeDeps: {
+    include: ['swiper/vue', 'swiper']
   },
   server: {
     port: 3000

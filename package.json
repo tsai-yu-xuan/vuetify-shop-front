@@ -10,10 +10,13 @@
   "dependencies": {
     "@boindil/vue-file-agent-next": "^1.0.5",
     "@mdi/font": "7.0.96",
+    "aos": "^2.3.4",
     "axios": "^1.7.2",
     "core-js": "^3.34.0",
+    "gsap": "^3.12.5",
     "pinia-plugin-persistedstate": "^3.2.1",
     "roboto-fontface": "*",
+    "swiper": "^11.1.9",
     "validator": "^13.12.0",
     "vee-validate": "^4.13.1",
     "vue": "^3.4.0",

@@ -1,0 +1,188 @@
+<template>
+  <v-container class="text-left text-padding"
+  data-aos="fade-right"
+  data-aos-easing="ease-out-cubic"
+  data-aos-duration="3000"
+  data-aos-offset="150"
+  data-aos-once="true"
+  data-aos-delay="0500">
+    <p>環保改念園區</p>
+  </v-container>
+
+<!--
+data-aos="fade-right"               使用 AOS 庫為元素添加從右側滑入的動畫效果
+data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
+  data-aos-duration="3000"          動畫持續時間設置為 3000 毫秒（3 秒）
+  data-aos-offset="200"             當元素距離視口頂部 200 像素時觸發動畫
+  data-aos-delay="000">             動畫延遲時間設置為 0 毫秒
+-->
+<v-container class=" text-center">
+    <v-row class="GroupImghight d-none d-md-flex">
+      <v-col cols="12" md="4" class="p-img"><v-img :src="images[0]"></v-img></v-col>
+      <v-col cols="12" md="4" class="flex-column">
+        <v-row cols="12" xl="6">
+          <v-col class="p-img"><v-img :src="images[1]"></v-img></v-col>
+        </v-row>
+        <v-row cols="12" xl="6">
+          <v-col cols="12" xl="4">
+            <v-row>
+              <v-col xl="6" class="s-img p-img"><v-img :src="images[2]"></v-img></v-col>
+              <v-col xl="6" class="s-img p-img"><v-img :src="images[3]"></v-img></v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="12" md="4" class="p-img"><v-img :src="images[4]"></v-img></v-col>
+    </v-row>
+    <v-row class="d-md-none">
+      <v-col class="d-flex justify-content-center" style="margin: auto; ">
+        <swiper
+    :effect="'coverflow'"
+    :grabCursor="true"
+    :centeredSlides="true"
+    :slidesPerView="'auto'"
+    :autoplay="{
+      delay: 2500,
+      disableOnInteraction: false,
+    }"
+    :coverflowEffect="{
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }"
+    :pagination="true"
+    :modules="modules"
+    class="mySwiper"
+  >
+  <swiper-slide v-for="(image, index) in images" :key="index">
+            <v-img :src="image"></v-img>
+          </swiper-slide>
+  </swiper>
+      </v-col>
+    </v-row>
+
+    <v-btn class="mt-5 btn">
+      <router-link to="/ParkInfo" class="btn-text">更多園區介紹</router-link>
+    </v-btn>
+  </v-container>
+</template>
+
+<script setup>
+// 引入 AOS 动画库
+import AOS from 'aos'
+// 引入 AOS 动画库的 CSS 文件
+import 'aos/dist/aos.css'
+
+import { ref, onMounted } from 'vue'
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+// import './style.css'
+
+// import required modules
+import { Mousewheel, Pagination, Autoplay } from 'swiper/modules'
+
+// Define the modules to be used
+// const modules = [Autoplay]
+
+// 定義響應式的 modules
+const modules = ref([Mousewheel, Pagination, Autoplay])
+
+// 定義圖片來源
+const images = ref([
+  'https://picsum.photos/389/510/?random=10',
+  'https://picsum.photos/300/200/?random=9',
+  'https://picsum.photos/195/248/?random=8',
+  'https://picsum.photos/195/248/?random=7',
+  'https://picsum.photos/389/510/?random=6'
+])
+
+// 初始化 AOS
+onMounted(() => {
+  AOS.init()
+})
+</script>
+
+<style scoped lang="scss">
+@import '@/styles/settings'; // 導入變數文件
+
+/* 針對小尺寸螢幕隱藏原有的圖片佈局 */
+@media (max-width: 992px) {
+  .GroupImghight {
+    display: none;
+  }
+}
+// .container{
+//   width: 100vw;
+//   padding: 5px !important;
+//   margin: auto;
+// }
+
+.GroupImghight{
+  // height: 40vw;
+  margin: 5px;
+  padding: 2px;
+}
+
+.text-padding {
+  color: $ehp-grey;
+  font-size: 20px;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.img{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+// .s-img{
+//   height: 247.11px;
+// }
+.p-img{
+  padding: 5px !important;
+}
+
+.btn{
+  background-color: $ehp-grey;
+  padding: 0px 1vw;
+  border-radius: 20px;
+  margin-top: 3vw !important;
+  margin: 4vw 0;
+}
+.btn-text{
+  color: $ehp-white;
+  text-decoration: none  !important; /* 移除底線 */
+  line-height: 16px;
+  font-size:15px;
+  font-weight: bold;
+}
+//swiper 內的樣式----------------------
+.swiper {
+  width: 100%;
+  // padding-top: 50px;
+  // padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+</style>

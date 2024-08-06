@@ -3,6 +3,82 @@
  *
  * Configures SASS variables and Vuetify overwrites
  */
+$ehp-white: #EEEDEB;
+$ehp-black: #252525;
+$ehp-grey: #9C9C9C;
+$ehp-brown: #957453;
+$ehp-yellow: #E1C370;
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=LXGW+WenKai+TC&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shadows+Into+Light&display=swap');
+// 英文字體
+.text-English {
+  font-family: 'Edu AU VIC WA NT Hand';
+}
+// 中文字體
+.text-Chinese {
+  font-family: "LXGW WenKai TC", cursive;
+}
+
+// 去除留白 -----------------------------
+.no-padding {
+  background: none !important; /* 強制移除背景 */
+  padding: 0 !important; /* 強制移除 padding */
+  margin: 0 !important;  /* 強制移除 margin */
+}
+// 移除底線 -----------------------------
+.no-text-decoration {
+  text-decoration: none !important; /* 強制移除底線 */
+  color: inherit; /* 繼承父元素的顏色 */
+}
+// 強制移除背景 -----------------------------
+.no-background{
+  background: none !important; /* 強制移除背景 */
+}
+
+// 背景顏色-----------------------------
+// 背景顏色灰色
+.bg-grey {
+  background: $ehp-grey;
+}
+// 背景顏色黑色
+.bg-black {
+  background: $ehp-black;
+}
+// 背景顏色棕色
+.bg-brown {
+  background: $ehp-brown;
+}
+// 背景顏色黃色
+.bg-yellow {
+  background: $ehp-yellow;
+}
+// 字體顏色-----------------------------
+// 字體顏色白色
+.text-white {
+  color: $ehp-white;
+}
+// 字體顏色灰色
+.text-grey {
+  color: $ehp-grey;
+}
+// 字體顏色黑色
+.text-black {
+  color: $ehp-black;
+}
+// 字體顏色棕色
+.text-brown {
+  color: $ehp-brown;
+}
+// 字體顏色黃色
+.text-yellow {
+  color: $ehp-yellow;
+  margin: auto;
+}
+
+
+
+
 
 // https://vuetifyjs.com/features/sass-variables/`
 // @use 'vuetify/settings' with (

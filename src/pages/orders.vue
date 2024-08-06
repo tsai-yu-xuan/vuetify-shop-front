@@ -31,7 +31,7 @@ import { definePage } from 'vue-router/auto'
 
 definePage({
   meta: {
-    title: '購物網 | 訂單查詢',
+    title: '訂單查詢 | 鼠兔永恆居所',
     login: true,
     admin: false
   }

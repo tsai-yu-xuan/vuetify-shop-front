@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     '@vue/standard'
   ],
+  // 把eslint的vue/multi-word-component-names規則關掉
   overrides: [
     {
       files: ['src/layouts/**', 'src/pages/**'],

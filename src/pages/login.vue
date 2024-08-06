@@ -40,7 +40,7 @@ import { useSnackbar } from 'vuetify-use-dialog'
 
 definePage({
   meta: {
-    title: '購物網 | 登入',
+    title: '登入 | 鼠兔永恆居所',
     login: false,
     admin: false
   }

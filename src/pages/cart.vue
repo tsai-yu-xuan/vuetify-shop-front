@@ -37,7 +37,7 @@ import { useUserStore } from '@/stores/user'
 
 definePage({
   meta: {
-    title: '購物網 | 購物車',
+    title: '購物車 | 鼠兔永恆居所',
     login: true,
     admin: false
   }
