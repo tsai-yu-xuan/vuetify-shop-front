@@ -17,7 +17,7 @@ data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
   data-aos-delay="000">             動畫延遲時間設置為 0 毫秒
 -->
 <v-container class=" text-center">
-    <v-row class="GroupImghight d-none d-md-flex">
+    <v-row class="GroupImghight d-md-flex">
       <v-col cols="12" md="4" class="p-img"><v-img :src="images[0]"></v-img></v-col>
       <v-col cols="12" md="4" class="flex-column">
         <v-row cols="12" xl="6">
@@ -76,8 +76,13 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 import { ref, onMounted } from 'vue'
+import img01 from '../assets/indexSection03-7.jpg'
+import img02 from '../assets/indexSection03-1.jpeg'
+import img03 from '../assets/indexSection03-2.jpg'
+import img04 from '../assets/indexSection03-3.jpg'
+import img05 from '../assets/indexSection03-5.jpg'
+import img06 from '../assets/indexSection03-6.jpg'
 
-// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 // Import Swiper styles
@@ -96,11 +101,12 @@ const modules = ref([Mousewheel, Pagination, Autoplay])
 
 // 定義圖片來源
 const images = ref([
-  'https://picsum.photos/389/510/?random=10',
-  'https://picsum.photos/300/200/?random=9',
-  'https://picsum.photos/195/248/?random=8',
-  'https://picsum.photos/195/248/?random=7',
-  'https://picsum.photos/389/510/?random=6'
+  img01,
+  img02,
+  img03,
+  img04,
+  img05,
+  img06
 ])
 
 // 初始化 AOS
@@ -148,6 +154,7 @@ onMounted(() => {
 // }
 .p-img{
   padding: 5px !important;
+  width: 100%;
 }
 
 .btn{

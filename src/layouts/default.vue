@@ -117,7 +117,7 @@
 
           <v-col cols="12" md="9" class="text-center">
             <v-row>
-              <v-col cols="12" md="2" class="no-padding ">
+              <v-col cols="6" md="2" class="no-padding ">
                 <v-list class="no-background brown">
                   <p class="text-black">關於我們</p>
                   <v-list-item><a href="/" class="no-text-decoration ">1234</a></v-list-item>
@@ -125,24 +125,24 @@
                   <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
                 </v-list>
               </v-col>
-              <v-col cols="12" md="2" class="no-padding">
-                <v-list class="no-background brown">
+              <v-col cols="6" md="2" class="no-padding">
+                <v-list class="no-background text-brown">
                   <p class="text-black">服務項目</p>
                   <v-list-item><a href="/" class="no-text-decoration ">1234</a></v-list-item>
                   <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
                   <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
                 </v-list>
               </v-col>
-              <v-col cols="12" md="4" class="no-padding">
-                <v-list class="no-background brown text-left" >
+              <v-col cols="6" md="4" class="no-padding">
+                <v-list class="no-background text-brown text-left" >
                   <!-- <p class="text-black">聯絡我們</p> -->
                   <v-list-item class="footer-textSize no-padding"><a href="/" class="no-text-decoration left">聯絡電話:02-0000-0000 </a></v-list-item>
                   <v-list-item class="footer-textSize no-padding"><a href="/" class="no-text-decoration">服務時間:9:00-21:00</a></v-list-item>
                   <v-list-item class="footer-textSize no-padding"><a href="/" class="no-text-decoration">聯絡地址:243新北市泰山區貴子里致遠新村55之1號</a></v-list-item>
                 </v-list>
               </v-col>
-              <v-col cols="12" md="4" class="no-padding">
-                <v-list class="no-background brown ">
+              <v-col cols="6" md="4" class="no-padding">
+                <v-list class="no-background text-brown ">
                   <iframe
                   style="width: 100%; border: 2px solid #EEEDEB;"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7023777147806!2d121.416871876079!3d25.0441724378805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bed3dc9b59%3A0x57e6439a2db0fa2a!2zMjQz5paw5YyX5biC5rOw5bGx5Y2A6LK05a2Q6YeM6Ie06YGg5paw5p2RNTXkuYsx6Jmf5rOw5bGx6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1717729138642!5m2!1szh-TW!2stw"

@@ -5,7 +5,8 @@
  */
 $ehp-white: #EEEDEB;
 $ehp-black: #252525;
-$ehp-grey: #9C9C9C;
+// $ehp-grey: #9C9C9C;
+$ehp-grey: #C1C0BF;
 $ehp-brown: #957453;
 $ehp-yellow: #E1C370;
 
@@ -34,50 +35,51 @@ $ehp-yellow: #E1C370;
 // 強制移除背景 -----------------------------
 .no-background{
   background: none !important; /* 強制移除背景 */
+box-shadow: none !important; /* 強制移除陰影 */
 }
 
 // 背景顏色-----------------------------
 // 背景顏色灰色
 .bg-grey {
-  background: $ehp-grey;
+  background: $ehp-grey !important;
 }
 // 背景顏色黑色
 .bg-black {
-  background: $ehp-black;
+  background: $ehp-black !important;
 }
 // 背景顏色棕色
 .bg-brown {
-  background: $ehp-brown;
+  background: $ehp-brown !important;
 }
 // 背景顏色黃色
 .bg-yellow {
-  background: $ehp-yellow;
+  background: $ehp-yellow !important;
 }
 // 字體顏色-----------------------------
 // 字體顏色白色
 .text-white {
-  color: $ehp-white;
+  color: $ehp-white !important;
 }
 // 字體顏色灰色
 .text-grey {
-  color: $ehp-grey;
+  color: $ehp-grey !important;
 }
 // 字體顏色黑色
 .text-black {
-  color: $ehp-black;
+  color: $ehp-black !important;
 }
 // 字體顏色棕色
 .text-brown {
-  color: $ehp-brown;
+  color: $ehp-brown !important;
 }
 // 字體顏色黃色
 .text-yellow {
-  color: $ehp-yellow;
+  color: $ehp-yellow !important;
   margin: auto;
 }
 
-
-
+//filter: saturate(0.1); // 設定文字飽和度為
+// opacity: 0.7; // 設定文字透明度為
 
 
 // https://vuetifyjs.com/features/sass-variables/`

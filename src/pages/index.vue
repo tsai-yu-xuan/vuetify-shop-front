@@ -30,10 +30,6 @@
     </v-row>
   </div>
 
-  <!-- <h2 class="text-English text-English-position">Eternal Haven of Pikas</h2>
-        <h1 class="text text-Chinese text-black">鼠兔永恆居所</h1>
-        <p>鼠兔永恆居所是一個專為鼠兔而設的長眠居所，我們提供最舒適的環境，讓您的鼠兔能夠享受這美好世界。</p>
-       -->
   <!-- 經營理念------------------- -->
   <indexSection02 />
   <!-- Slogan -->

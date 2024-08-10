@@ -78,8 +78,8 @@
     <v-row class="text-brown card-title">
       <v-col>服務流程</v-col>
     </v-row>
-    <v-row class="text-brown card-title">
-      <v-img class="h-100" src="https://picsum.photos/300/200/?random=10"></v-img>
+    <v-row class="text-brown process-img">
+      <v-img src="https://picsum.photos/1920/800/?random=10"></v-img>
     </v-row>
   </v-container>
 
@@ -235,7 +235,7 @@
     </v-row>
   </v-container>
 
-  <v-container class="text-center">
+  <!-- <v-container class="text-center">
       <v-row>
         <v-col id="img2" cols="12" class="d-flex align-center">
           <div>
@@ -250,7 +250,7 @@
           </div>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
 </template>
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -410,9 +410,8 @@ AOS.init()
   padding: 0.5vw 0;
 }
 
-.line {
-  border-top: 1px solid $ehp-grey;
-  margin: 20px 0;
-
+.process-img{
+  width: 100%;
+  height: 30vw;
 }
 </style>

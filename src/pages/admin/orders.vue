@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center">訂單管理</h1>
+        <h1 class="text-center text-white">訂單管理</h1>
       </v-col>
       <v-divider></v-divider>
       <v-col cols="12">

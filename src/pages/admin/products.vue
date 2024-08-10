@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+  <v-container class="bg">
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center">商品管理</h1>
+        <h1 class="text-center text-white">商品管理</h1>
       </v-col>
       <v-col cols="12">
         <v-btn color="green" @click="openDialog(null)">新增商品</v-btn>
@@ -272,6 +272,13 @@ const tableLoadItems = async (reset) => {
 }
 tableLoadItems()
 </script>
+
+<style scoped lang="scss">
+.bg {
+  width: 75vw !important;
+  margin: 3vw auto;
+}
+</style>
 
 <route lang="yaml">
 meta:

@@ -11,7 +11,7 @@
         <v-col id="img2" cols="12" md="6" class="d-flex align-center">
           <div>
             <img
-              src="https://picsum.photos/800/500/?random=10"
+              src="../assets/AboutUs.png"
               data-aos="fade-right"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="3000"
@@ -58,7 +58,7 @@
       <v-col id="img2" cols="12" md="5" class="d-flex align-center">
         <div>
           <img
-            src="https://picsum.photos/496/600/?random=10"
+            src="..//assets/03gif.webp"
             data-aos="fade-right"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="3000"
@@ -80,7 +80,7 @@
         <v-card-item>
           <v-card-title class="padding">專業用心</v-card-title>
 
-          <v-card-subtitle class="padding">This is a card subtitle</v-card-subtitle>
+          <v-card-subtitle class="padding">Professional and Dedicated</v-card-subtitle>
         </v-card-item>
 
         <v-card-text>
@@ -93,7 +93,7 @@
         <v-card-item>
           <v-card-title class="padding">環保永續</v-card-title>
 
-          <v-card-subtitle class="padding">This is a card subtitle</v-card-subtitle>
+          <v-card-subtitle class="padding">Environmentally Sustainable</v-card-subtitle>
         </v-card-item>
 
         <v-card-text>
@@ -106,7 +106,7 @@
         <v-card-item>
           <v-card-title class="padding">簡約慎重</v-card-title>
 
-          <v-card-subtitle class="padding">This is a card subtitle</v-card-subtitle>
+          <v-card-subtitle class="padding">Simple and Solemn</v-card-subtitle>
         </v-card-item>
 
         <v-card-text>
@@ -124,7 +124,7 @@
         <v-col id="img2" cols="12" class="d-flex align-center">
           <div>
             <img
-              src="https://picsum.photos/1200/500/?random=10"
+              src="../assets/mouse.jpg"
               data-aos="zoom-in"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="3000"
@@ -254,7 +254,7 @@ AOS.init()
   padding-bottom:10vw ;
 }
 .padding{
-  padding: 1vw 0;
+  padding: 0.5vw 0;
 }
 
 .line {

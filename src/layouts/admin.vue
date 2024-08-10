@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent>
+  <v-navigation-drawer permanent class="bg-grey">
     <v-list>
       <v-list-item :prepend-avatar="avatar" :title="user.account"></v-list-item>
     </v-list>
@@ -32,3 +32,14 @@ const avatar = computed(() => {
   return `https://api.multiavatar.com/${user.account}.png`
 })
 </script>
+
+<style scoped lang="scss">
+@import '@/styles/settings'; // 導入變數文件
+
+.v-main {
+  background: url('../assets/bg_black.png') repeat;
+  // background-size: cover;
+  // background-position: center;
+  // position: relative;
+}
+</style>

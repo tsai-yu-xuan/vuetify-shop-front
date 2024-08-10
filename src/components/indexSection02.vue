@@ -17,8 +17,7 @@
       </div>
       </v-col>
       <v-col id="img2" cols="12" md="7">
-       放照片
-       <!-- <img src="https://picsum.photos/655/500/?random=10" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="3000" data-aos-offset="200" data-aos-delay="000"> -->
+       <img src="../assets/rabbit02.png" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="3000" data-aos-offset="200" data-aos-delay="000">
       </v-col>
     </v-row>
   </v-container>
@@ -78,12 +77,14 @@ AOS.init()
 
 #img2 {
   // width: 600px !important;
-  height: 800px !important;
-  background: #828080;
+  height: 600px !important;
+  // background: #828080;
   img {
-    width: 80%;
+    width: 90%;
     position: relative;
     overflow: hidden;
+    top: 20%;
+    left: 20%;
   }
 }
 
