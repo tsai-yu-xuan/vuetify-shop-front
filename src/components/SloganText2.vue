@@ -1,6 +1,7 @@
 <template>
-  <v-container>
-    <div><hr></div>
+
+<v-container>
+    <div class="flower"><img class="flower-yellow" src="../assets/flower-yellow.png" alt=""></div>
   </v-container>
 
   <div id="section01-btns" class="container">
@@ -49,7 +50,7 @@ padding: 30px;
 .container{
   color: $ehp-brown;
   margin-bottom: 2rem;
-  padding-top: 13vw;
+  padding-top: 10vw;
   padding-bottom: 8vw;
   h1{
     font-size: 2.5rem;
@@ -57,4 +58,19 @@ padding: 30px;
     padding-bottom: 5vw;
   }
 }
+
+.flower-yellow {
+  width: 10%;
+  animation: moveAndRotate 4s infinite alternate; /* 應用動畫 */
+}
+
+@keyframes moveAndRotate {
+  0% {
+    transform: translateX(0) rotate(0deg); /* 初始位置和旋轉角度 */
+  }
+  100% {
+    transform: translateX(1000px) rotate(-40deg); /* 向右移動600px並向下移動500px並旋轉-270度 */
+  }
+}
+
 </style>

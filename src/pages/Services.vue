@@ -29,7 +29,7 @@
             <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
           </v-btn>
         </v-card-text>
-        <v-img><img src="https://picsum.photos/300/200/?random=10"></v-img>
+        <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
       </v-card>
     </v-col>
     <v-col cols="12" md="4">
@@ -48,7 +48,7 @@
             <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
           </v-btn>
         </v-card-text>
-        <v-img><img src="https://picsum.photos/300/200/?random=10"></v-img>
+        <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
       </v-card>
     </v-col>
     <v-col cols="12" md="4">
@@ -67,7 +67,7 @@
             <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
           </v-btn>
         </v-card-text>
-        <v-img><img src="https://picsum.photos/300/200/?random=10"></v-img>
+        <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
       </v-card>
     </v-col>
   </v-row>
@@ -413,5 +413,10 @@ AOS.init()
 .process-img{
   width: 100%;
   height: 30vw;
+}
+.img{
+  padding: 1vw;
+  width: 100%;
+  height: 100%;
 }
 </style>

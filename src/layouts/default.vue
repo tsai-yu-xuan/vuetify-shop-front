@@ -262,10 +262,7 @@ onUnmounted(() => {
 }
 // 背景圖片
 .v-main {
-  background-image: url('../assets/bg.png');
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  background: url('../assets/bg.png') ;
 }
 // main 往上推navbar高度
 .main-content {

@@ -11,22 +11,22 @@
       <div class="menu">
       <div>
         <v-btn class="mt-5 btn ">
-          <router-link to="/ContactUs" class="menu-btn ">優惠專案</router-link>
+          <router-link to="/Services" class="menu-btn ">優惠專案</router-link>
         </v-btn>
       </div>
       <div>
         <v-btn class="mt-5 btn ">
-          <router-link to="/ContactUs" class="menu-btn">個別火化</router-link>
+          <router-link to="/Services" class="menu-btn">個別火化</router-link>
         </v-btn>
       </div>
       <div>
         <v-btn class="mt-5 btn ">
-          <router-link to="/ContactUs" class="menu-btn">團體火化</router-link>
+          <router-link to="/Services" class="menu-btn">團體火化</router-link>
         </v-btn>
       </div>
       <div >
         <v-btn class="mt-5 btn ">
-          <router-link to="/ContactUs" class="menu-btn">紀念飾品區</router-link>
+          <router-link to="/Services" class="menu-btn">紀念飾品區</router-link>
         </v-btn>
       </div>
     </div>
@@ -44,10 +44,10 @@
           </v-card-item>
           <v-card-text>
             <v-btn class="mt-5 btn ">
-              <router-link to="/" class="btn-text ">聯絡我們</router-link>
+              <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
             </v-btn>
           </v-card-text>
-          <v-img><img src="https://picsum.photos/300/200/?random=10"></v-img>
+          <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -62,10 +62,10 @@
           </v-card-item>
           <v-card-text>
             <v-btn class="mt-5 btn ">
-              <router-link to="/" class="btn-text ">聯絡我們</router-link>
+              <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
             </v-btn>
           </v-card-text>
-          <v-img><img src="https://picsum.photos/300/200/?random=10"></v-img>
+          <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -80,10 +80,10 @@
           </v-card-item>
           <v-card-text>
             <v-btn class="mt-5 btn ">
-              <router-link to="/" class="btn-text ">聯絡我們</router-link>
+              <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
             </v-btn>
           </v-card-text>
-          <v-img><img src="https://picsum.photos/300/200/?random=10"></v-img>
+          <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
         </v-card>
       </v-col>
     </v-row>
@@ -167,5 +167,11 @@ justify-content: center;
 
 .padding{
   padding: 0.5vw 0;
+}
+
+.img{
+  padding: 1vw;
+  width: 100%;
+  height: 100%;
 }
 </style>
