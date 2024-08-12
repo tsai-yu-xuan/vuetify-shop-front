@@ -1,13 +1,12 @@
 <template>
-
-<v-container>
-    <div class="flower"><img class="flower-yellow" src="../assets/flower-yellow.png" alt=""></div>
-  </v-container>
-
-  <div id="section01-btns" class="container">
+    <v-container>
+  <div class="container">
+    <div>
    <h1>鼠兔永恆居所的使命</h1>
    <p>我們的使命是推動環保的生命禮儀理念，尊重每一個生命的價值，並幫助家屬在悲傷中找到心靈的平靜。<br>
     我們希望通過我們的服務，讓更多人了解並接受自然葬禮的美好，並以此尊重和愛護我們的環境。</p>
+
+  </div>
     <!--
     「鼠兔永恆居所，舒適生活的理想選擇」
     「與鼠兔共享每一刻，居住永恆幸福」
@@ -15,7 +14,9 @@
     「鼠兔的永恆居所，讓幸福常駐心間」
     「選擇鼠兔永恆居所，擁抱溫馨生活」
     -->
+    <div class="mouse"><img class="flower-yellow" src="../assets/mouse02.png" alt=""></div>
   </div>
+    </v-container>
 </template>
 
 <script setup>
@@ -52,6 +53,7 @@ padding: 30px;
   margin-bottom: 2rem;
   padding-top: 10vw;
   padding-bottom: 8vw;
+  position: relative;
   h1{
     font-size: 2.5rem;
     font-weight: 700;
@@ -59,18 +61,14 @@ padding: 30px;
   }
 }
 
-.flower-yellow {
-  width: 10%;
-  animation: moveAndRotate 4s infinite alternate; /* 應用動畫 */
-}
-
-@keyframes moveAndRotate {
-  0% {
-    transform: translateX(0) rotate(0deg); /* 初始位置和旋轉角度 */
+// .slogan{
+//   position: relative;
+// }
+.mouse {
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  z-index: 99;
   }
-  100% {
-    transform: translateX(1000px) rotate(-40deg); /* 向右移動600px並向下移動500px並旋轉-270度 */
-  }
-}
 
 </style>

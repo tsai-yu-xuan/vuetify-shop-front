@@ -1,11 +1,13 @@
 <template>
-  <v-container class="bg">
+  <v-container class="">
     <v-row>
       <v-col cols="12">
         <h1 class="text-center text-white">商品管理</h1>
       </v-col>
+      <v-divider></v-divider>
+      <div class="border">
       <v-col cols="12">
-        <v-btn color="green" @click="openDialog(null)">新增商品</v-btn>
+        <v-btn class="btn" @click="openDialog(null)">新增商品</v-btn>
       </v-col>
       <v-col cols="12">
         <v-data-table-server
@@ -21,6 +23,7 @@
           @update:sort-by="tableLoadItems(false)"
           @update:page="tableLoadItems(false)"
           hover
+          class="no-background"
         >
           <template #top>
             <v-text-field
@@ -38,10 +41,11 @@
             <v-icon icon="mdi-check" v-if="value"></v-icon>
           </template>
           <template #[`item.action`]="{ item }">
-            <v-btn icon="mdi-pencil" variant="text" color="blue" @click="openDialog(item)"></v-btn>
+            <v-btn icon="mdi-pencil" variant="text" color="white" @click="openDialog(item)"></v-btn>
           </template>
         </v-data-table-server>
       </v-col>
+    </div>
     </v-row>
   </v-container>
   <v-dialog v-model="dialog.open" persistent width="500">
@@ -144,7 +148,7 @@ const closeDialog = () => {
   fileAgent.value.deleteFileRecord()
 }
 
-const categories = ['衣服', '手機', '遊戲', '食品']
+const categories = ['鑰匙圈', '生態瓶', '盆栽']
 const schema = yup.object({
   name: yup
     .string()
@@ -277,6 +281,14 @@ tableLoadItems()
 .bg {
   width: 75vw !important;
   margin: 3vw auto;
+}
+
+.border{
+  margin: 20px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.5)
 }
 </style>
 

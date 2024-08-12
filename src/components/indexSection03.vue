@@ -21,7 +21,7 @@ data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
       <v-col cols="12" md="4" class="p-img"><v-img :src="images[0]"></v-img></v-col>
       <v-col cols="12" md="4" class="flex-column">
         <v-row cols="12" xl="6">
-          <v-col class="p-img"><v-img :src="images[1]"></v-img></v-col>
+          <v-col class="p-img-2"><v-img :src="images[1]"></v-img></v-col>
         </v-row>
         <v-row cols="12" xl="6">
           <v-col cols="12" xl="4">
@@ -131,7 +131,7 @@ onMounted(() => {
 // }
 
 .GroupImghight{
-  // height: 40vw;
+  height: 35vw;
   margin: 5px;
   padding: 2px;
 }
@@ -155,6 +155,12 @@ onMounted(() => {
 .p-img{
   padding: 5px !important;
   width: 100%;
+  height: 545px;
+}
+.p-img-2{
+  padding: 5px !important;
+  width: 100%;
+  // height: 540px;
 }
 
 .btn{

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent class="bg-grey">
+  <v-navigation-drawer permanent class="bg">
     <v-list>
       <v-list-item :prepend-avatar="avatar" :title="user.account"></v-list-item>
     </v-list>
@@ -38,8 +38,8 @@ const avatar = computed(() => {
 
 .v-main {
   background: url('../assets/bg_black.png') repeat;
-  // background-size: cover;
-  // background-position: center;
-  // position: relative;
+}
+.bg{
+  background: url('../assets/bg_black.png') repeat;
 }
 </style>

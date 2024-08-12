@@ -33,27 +33,27 @@ AOS.init()
 gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-  // 第一區塊
   gsap.to('.flower', {
     scrollTrigger: {
       trigger: '.flower', // 觸發動畫的元素
-      start: 'top -40%', // 當元素的頂部到達視口頂部時開始動畫
-      end: 'bottom 60%', // 當元素的底部到達視口底部時結束動畫
+      start: '-80% 40%', // 當元素的頂部到達視口頂部時開始動畫
+      end: '0 60%', // 當元素的底部到達視口底部時結束動畫
       scrub: 5 // 平滑滾動，值越大動畫越慢
+      // markers: true
     },
     yPercent: -50, // 元素沿著 y 軸向上移動 50%
-    xPercent: -40, // 元素沿著 x 軸向左移動 40%
+    xPercent: -20, // 元素沿著 x 軸向左移動 40%
     scale: 1, // 將元素縮放至 2 倍大小
     rotation: 50
   })
   gsap.to('.grass', {
     scrollTrigger: {
       trigger: '.grass', // 觸發動畫的元素
-      start: 'top -45%x', // 當元素的頂部到達視口頂部時開始動畫
-      end: 'bottom 60%', // 當元素的底部到達視口底部時結束動畫
+      start: '-80% 40%x', // 當元素的頂部到達視口頂部時開始動畫
+      end: '0 60%', // 當元素的底部到達視口底部時結束動畫
       scrub: 5 // 平滑滾動，值越大動畫越慢
     },
-    yPercent: -100, // 元素沿著 y 軸向上移動 50%
+    yPercent: -50, // 元素沿著 y 軸向上移動 50%
     xPercent: 10, // 元素沿著 x 軸向左移動 40%
     scale: 1, // 將元素縮放至 2 倍大小
     rotation: -50, // 將元素旋轉 50 度
@@ -69,8 +69,8 @@ onMounted(() => {
 .container{
   color: $ehp-brown;
   margin-bottom: 2rem;
-  padding-top: 10vw;
-  padding-bottom: 10vw;
+  padding-top: 8vw;
+  padding-bottom: 8vw;
   text-align: center;
 }
 @media (max-width: 768px) {
@@ -104,11 +104,19 @@ onMounted(() => {
     width:60vw;
     display: flex;
     margin: auto;
-    justify-content: space-between;
-    img{
+    height: 50px;
+
+    .flower{
       position: relative;
-      top: -120px;
-      width: 50%;
+      top: -100px;
+      left: -50px;
+      width: 40%;
+    }
+    .grass{
+      position: relative;
+      top: -100px;
+    right: -50px;
+      width: 40%;
     }
   }
 }

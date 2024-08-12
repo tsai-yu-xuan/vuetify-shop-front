@@ -126,11 +126,11 @@
                 </v-list>
               </v-col>
               <v-col cols="6" md="2" class="no-padding">
-                <v-list class="no-background text-brown">
+                <v-list class="no-background text-brown ">
                   <p class="text-black">服務項目</p>
-                  <v-list-item><a href="/" class="no-text-decoration ">1234</a></v-list-item>
-                  <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
-                  <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
+                  <v-list-item><a href="/" class="no-text-decoration ">優惠專案</a></v-list-item>
+                  <v-list-item><a href="/" class="no-text-decoration">團體火化</a></v-list-item>
+                  <v-list-item><a href="/" class="no-text-decoration">個人火化</a></v-list-item>
                 </v-list>
               </v-col>
               <v-col cols="6" md="4" class="no-padding">
@@ -281,7 +281,7 @@ onUnmounted(() => {
 .footer {
   background-image: url('../assets/bg.png');
   /* background: #804f4f; */
-  background-size: cover;
+  // background-size: cover;
   background-position: center;
   position: relative;
   color: $ehp-brown;
@@ -291,6 +291,6 @@ onUnmounted(() => {
 }
 
 .footer-textSize{
-  font-size: 12px;
+  font-size: 15px;
 }
 </style>

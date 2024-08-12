@@ -5,10 +5,12 @@
         <h1 class="text-center text-white">訂單管理</h1>
       </v-col>
       <v-divider></v-divider>
-      <v-col cols="12">
+      <div class="border">
+.      <v-col cols="12" >
         <v-data-table
           :items="items"
           :headers="headers"
+          class="no-background"
         >
           <template #[`item.cart`]="data">
             <ul>
@@ -19,6 +21,7 @@
           </template>
         </v-data-table>
       </v-col>
+    </div>
     </v-row>
   </v-container>
 </template>
@@ -73,6 +76,16 @@ const loadItems = async () => {
 }
 loadItems()
 </script>
+<style>
+.border{
+  margin: 20px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.5)
+}
+
+</style>
 
 <route lang="yaml">
 meta:

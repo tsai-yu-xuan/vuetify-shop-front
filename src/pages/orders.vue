@@ -1,14 +1,16 @@
 <template>
+  <div class="bg">
   <v-container>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" class="title">
         <h1 class="text-center">訂單查詢</h1>
       </v-col>
-      <v-divider></v-divider>
+      <v-divider ></v-divider>
       <v-col cols="12">
         <v-data-table
           :items="items"
           :headers="headers"
+          class="tableBg"
         >
           <template #[`item.cart`]="data">
             <ul>
@@ -21,6 +23,7 @@
       </v-col>
     </v-row>
   </v-container>
+</div>
 </template>
 
 <script setup>
@@ -72,3 +75,22 @@ const loadItems = async () => {
 }
 loadItems()
 </script>
+
+<style>
+.bg {
+  background: url('../assets/bg_black.png') repeat;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+.title{
+ margin-top: 8vw;
+}
+.tableBg{
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  color: #263A4F;
+}
+</style>

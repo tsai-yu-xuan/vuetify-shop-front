@@ -1,11 +1,16 @@
 <template>
+    <div class="bg">
   <v-container>
-    <v-col cols="12">
+    <v-col cols="12" class=" title">
       <h1 class="text-center">購物車</h1>
     </v-col>
     <v-divider></v-divider>
     <v-col cols="12">
-      <v-data-table :items="items" :headers="headers">
+      <v-data-table
+      :items="items"
+      :headers="headers"
+      class="tableBg"
+      >
         <template #[`item.p_id.name`]="{item}">
           <span v-if="item.p_id.sell">{{ item.p_id.name }}</span>
           <span v-else class="text-red">{{ item.p_id.name }} (已下架)</span>
@@ -22,9 +27,10 @@
     </v-col>
     <v-col cols="12" class="text-center">
       <p>總金額: {{ total }}</p>
-      <v-btn color="green" :disabled="!canCheckout" @click="checkout">結帳</v-btn>
+      <v-btn class="btn" :disabled="!canCheckout" @click="checkout">結帳</v-btn>
     </v-col>
   </v-container>
+</div>
 </template>
 
 <script setup>
@@ -120,3 +126,26 @@ const addCart = async (product, quantity) => {
   }
 }
 </script>
+<style>
+.bg {
+  background: url('../assets/bg_black.png') repeat;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+.title{
+ margin-top: 8vw;
+}
+
+.tableBg{
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.btn{
+  margin-top: 1rem;
+  background: #836246;
+  color: #EEEDEB;
+}
+</style>

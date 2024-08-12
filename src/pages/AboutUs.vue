@@ -5,20 +5,14 @@
     <div class="title2 text-English">Eternal Haven of Pikas</div>
     <!-- <p>鼠兔永恆居所是一個專為鼠兔而設的長眠居所，我們提供最舒適的環境，讓您的鼠兔能夠享受這美好世界。</p> -->
   </v-container>
+
   <div class="bg-grey">
     <v-container class="text-center">
-      <v-row class="bg-grey">
-        <v-col id="img2" cols="12" md="6" class="d-flex align-center">
-          <div>
-            <img
-              src="../assets/AboutUs.png"
-              data-aos="fade-right"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              data-aos-offset="200"
-              data-aos-delay="000"
-            />
-          </div>
+      <v-row class="bg-grey why">
+        <v-col  cols="12" md="6" class="d-flex align-center">
+          <div class="AboutUsdiv">
+          <div class="AboutUsImg"></div>
+        </div>
         </v-col>
 
         <v-col id="text2" cols="12" md="6" class="d-flex align-center">
@@ -121,20 +115,23 @@
 
   <v-container class="text-center">
       <v-row>
-        <v-col id="img2" cols="12" class="d-flex align-center">
-          <div>
+        <v-col id="mouseImg" cols="12" class="d-flex align-center">
+          <div class="mousediv">
+          <div class="mouseImg">
             <img
               src="../assets/mouse.jpg"
-              data-aos="zoom-in"
+            />
+                          <!-- data-aos="zoom-in"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="3000"
               data-aos-offset="200"
-              data-aos-delay="000"
-            />
+              data-aos-delay="000" -->
           </div>
+        </div>
         </v-col>
       </v-row>
     </v-container>
+
 </template>
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -146,6 +143,10 @@ import { definePage } from 'vue-router/auto'
 import AOS from 'aos'
 // 引入 AOS 动画库的 CSS 文件
 import 'aos/dist/aos.css'
+
+// import { onMounted } from 'vue';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 definePage({
   meta: {
@@ -178,6 +179,34 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  gsap.to('.AboutUsImg', {
+    yPercent: -40,
+    ease: 'none',
+    // marker: true,
+    scrollTrigger: {
+      trigger: '.AboutUsdiv',
+      start: '-40% 40%',
+      end: '50% top',
+      scrub: true,
+      markers: true // 顯示標記點
+    }
+  })
+  gsap.to('.mouseImg', {
+    yPercent: -70,
+    ease: 'none',
+    marker: true,
+    scrollTrigger: {
+      trigger: '.mousediv',
+      start: '0% 40%',
+      end: 'center top',
+      scrub: true,
+      markers: true // 顯示標記點
+    }
+  })
+})
 // 初始化
 AOS.init()
 </script>
@@ -216,22 +245,31 @@ AOS.init()
   color: $ehp-grey;
   margin-bottom: 3vw;
 }
-
-#img2 {
-  height: 600px !important;
-  // background: #ce9a9a;
-  img {
-    width: 90%;
-    position: relative;
-    overflow: hidden;
+.why{
+  padding: 5vw 0;
+}
+.AboutUsdiv {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  .AboutUsImg {
+    position: absolute;
+  top: -10px;
+  left: 0;
+  width: 90%;
+  height: 130%;
+  background-image: url('../assets/AboutUs.png');
+  // background-attachment: fixed;
+  background-size: cover;
+  // background-position: center;
+  transform: translateZ(-1px) scale(2);
   }
 }
 
 #text2 {
   text-align: left;
-  // color: $ehp-black;
-  // filter: saturate(0.2); // 設定文字飽和度為
-  // opacity: 0.5; // 設定文字透明度為
 }
 #text3 {
   // text-align: left;
@@ -239,15 +277,12 @@ AOS.init()
   p {
     color: $ehp-brown;
   }
-  // filter: saturate(0.2); // 設定文字飽和度為
-  // opacity: 0.5; // 設定文字透明度為
 }
 
 .card-title{
   font-size: 40px;
   padding-top: 5vw;
   padding-bottom: 1vw;
-
 }
 
 .card{
@@ -261,5 +296,25 @@ AOS.init()
   border-top: 1px solid $ehp-grey;
   margin: 20px 0;
 
+}
+#mouseImg{
+  width: 100vw;
+  height: 500px;
+  .mousediv{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .mouseImg{
+      width: 100%;
+      height: 100%;
+      img{
+        width: 100%;
+        // height: 100%;
+      }
+      // background-image: url('../assets/AboutUs.png');
+      // background-size: cover;
+    }
+  }
 }
 </style>
