@@ -2,12 +2,12 @@
   <v-container class="">
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center text-white">商品管理</h1>
+        <h1 class="text-center text-white">服務項目管理</h1>
       </v-col>
       <v-divider></v-divider>
       <div class="border">
       <v-col cols="12">
-        <v-btn class="btn" @click="openDialog(null)">新增商品</v-btn>
+        <v-btn class="btn" @click="openDialog(null)">新增服務項目</v-btn>
       </v-col>
       <v-col cols="12">
         <v-data-table-server
@@ -25,7 +25,7 @@
           hover
           class="no-background"
         >
-          <template #top>
+          <!-- <template #top>
             <v-text-field
               label="搜尋"
               v-model="tableSearch"
@@ -33,7 +33,7 @@
               @click-append="tableLoadItems(true)"
               @keydown.enter="tableLoadItems(true)"
             ></v-text-field>
-          </template>
+          </template> -->
           <template #[`item.image`]="{ value }">
             <v-img :src="value" height="50px"></v-img>
           </template>
@@ -70,6 +70,12 @@
             v-model="category.value.value"
             :error-messages="category.errorMessage.value"
           ></v-select>
+          <v-text-field
+            label="電話"
+            type="number" min="0"
+            v-model="telephone.value.value"
+            :error-messages="telephone.errorMessage.value"
+          ></v-text-field>
           <v-checkbox
             label="上架"
             v-model="sell.value.value"
@@ -110,7 +116,7 @@ import { useSnackbar } from 'vuetify-use-dialog'
 
 definePage({
   meta: {
-    title: '購物網 | 商品管理',
+    title: '購物網 | 服務項目管理',
     login: true,
     admin: true
   }
@@ -135,6 +141,7 @@ const openDialog = (item) => {
     price.value.value = item.price
     description.value.value = item.description
     category.value.value = item.category
+    telephone.value.value = item.telephone
     sell.value.value = item.sell
   } else {
     dialog.value.id = ''
@@ -148,25 +155,29 @@ const closeDialog = () => {
   fileAgent.value.deleteFileRecord()
 }
 
-const categories = ['鑰匙圈', '生態瓶', '盆栽']
+const categories = ['優惠專案', '個別火化', '團體火化', '紀念飾品區']
 const schema = yup.object({
   name: yup
     .string()
-    .required('商品名稱必填'),
+    .required('服務項目名稱必填'),
   price: yup
     .number()
-    .typeError('商品價格格式錯誤')
-    .required('商品價格必填')
-    .min(0, '商品價格不能小於 0'),
+    .typeError('服務項目價格格式錯誤')
+    .required('服務項目價格必填')
+    .min(0, '服務項目價格不能小於 0'),
   description: yup
     .string()
-    .required('商品說明必填'),
+    .required('服務項目說明必填'),
   category: yup
     .string()
-    .required('商品分類必填')
+    .required('服務項目分類必填')
     .test('isCategory', '商品分類錯誤', value => {
       return categories.includes(value)
     }),
+  telephone: yup
+    .number()
+    .typeError('服務項目電話格式錯誤')
+    .required('服務項目電話必填'),
   sell: yup
     .boolean()
 })
@@ -177,6 +188,7 @@ const { handleSubmit, isSubmitting, resetForm } = useForm({
     price: 0,
     description: '',
     category: '',
+    telephone: '',
     sell: true
   }
 })
@@ -184,6 +196,7 @@ const name = useField('name')
 const price = useField('price')
 const description = useField('description')
 const category = useField('category')
+const telephone = useField('telephone')
 const sell = useField('sell')
 
 const fileRecords = ref([])
@@ -200,6 +213,7 @@ const submit = handleSubmit(async (values) => {
     fd.append('price', values.price)
     fd.append('description', values.description)
     fd.append('category', values.category)
+    fd.append('telephone', values.telephone)
     fd.append('sell', values.sell)
 
     if (fileRecords.value.length > 0) {
@@ -207,9 +221,9 @@ const submit = handleSubmit(async (values) => {
     }
 
     if (dialog.value.id === '') {
-      await apiAuth.post('/product', fd)
+      await apiAuth.post('/service', fd)
     } else {
-      await apiAuth.patch('/product/' + dialog.value.id, fd)
+      await apiAuth.patch('/service/' + dialog.value.id, fd)
     }
 
     createSnackbar({
@@ -242,38 +256,48 @@ const tableHeaders = [
   { title: '名稱', align: 'center', sortable: true, key: 'name' },
   { title: '價格', align: 'center', sortable: true, key: 'price' },
   { title: '分類', align: 'center', sortable: true, key: 'category' },
+  { title: '電話', align: 'center', sortable: true, key: 'telephone' },
   { title: '上架', align: 'center', sortable: true, key: 'sell' },
   { title: '操作', align: 'center', sortable: false, key: 'action' }
 ]
 const tableLoading = ref(true)
 const tableItemsLength = ref(0)
 const tableSearch = ref('')
-const tableLoadItems = async (reset) => {
-  if (reset) tablePage.value = 1
+// 定義一個異步函數 tableLoadItems，用於從 API 獲取所有服務項目數據。
+const tableLoadItems = async () => {
+  // 設置加載狀態為 true，表示開始加載數據。
   tableLoading.value = true
   try {
-    const { data } = await apiAuth.get('/product/all', {
+    // 向 API 發送 GET 請求以獲取所有服務項目數據。
+    // 使用 apiAuth 認證請求。
+    const { data } = await apiAuth.get('/service/all', {
+      // 請求的參數包括排序字段、排序順序以及搜索關鍵字。
       params: {
-        page: tablePage.value,
-        itemsPerPage: tableItemsPerPage.value,
-        sortBy: tableSortBy.value[0]?.key || 'createdAt',
-        sortOrder: tableSortBy.value[0]?.order || 'desc',
-        search: tableSearch.value
+        sortBy: tableSortBy.value[0]?.key || 'createdAt', // 默認按 'createdAt' 排序。
+        sortOrder: tableSortBy.value[0]?.order || 'desc', // 默認按降序排列。
+        search: tableSearch.value // 根據搜索框中的輸入進行搜索。
       }
     })
+    // 清空 tableItems，然後將新獲取的數據添加到 tableItems 中。
     tableItems.value.splice(0, tableItems.value.length, ...data.result.data)
+    // 設置表格項目的總數量，這可以用於顯示數據條目總數。
     tableItemsLength.value = data.result.total
   } catch (error) {
+    // 如果請求失敗，捕獲錯誤並在控制台打印錯誤信息。
     console.log(error)
+    // 創建一個紅色的錯誤提示條，用於顯示給用戶。
     createSnackbar({
-      text: error?.response?.data?.message || '發生錯誤',
+      text: error?.response?.data?.message || '發生錯誤', // 顯示服務器返回的錯誤消息或默認錯誤消息。
       snackbarProps: {
-        color: 'red'
+        color: 'red' // 設置提示條的顏色為紅色。
       }
     })
   }
+  // 請求結束後，無論成功或失敗，都將加載狀態設置為 false。
   tableLoading.value = false
 }
+
+// 調用 tableLoadItems 函數以加載數據。
 tableLoadItems()
 </script>
 

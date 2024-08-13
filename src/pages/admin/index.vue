@@ -13,7 +13,7 @@ import { definePage } from 'vue-router/auto'
 
 definePage({
   meta: {
-    title: '購物網 | 管理',
+    title: '管理 | 鼠兔永恆居所',
     login: true,
     admin: true
   }

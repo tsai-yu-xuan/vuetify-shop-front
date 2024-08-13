@@ -8,6 +8,29 @@
       <v-col>服務項目</v-col>
     </v-row>
     <v-row class="d-flex m-auto">
+     <!-- ----------------------------------- -->
+      <v-col
+        cols="12"
+        v-for="service in services" :key="service._id"
+      >
+        <!-- <ProductCard v-bind="product"></ProductCard> -->
+
+      <v-card class="card">
+        <v-img class="" :src="image" cover height="200"></v-img>
+        <v-card-title class="text-center ">
+          {{ name }}
+        </v-card-title>
+        <v-card-subtitle>${{ price }}</v-card-subtitle>
+        <v-card-text>
+          {{ description }}
+        </v-card-text>
+        <v-card-actions class="btn">
+          <!-- <v-spacer></v-spacer> -->
+          <v-btn prepend-icon="mdi-cart" @click="addCart" :loading="loading">加入購物車</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  <!-- -------------------------- -->
       <div class="menu">
       <div>
         <v-btn class="mt-5 btn ">
@@ -91,10 +114,46 @@
 </template>
 
 <script setup>
+import { useApi } from '@/composables/axios'
+import { useSnackbar } from 'vuetify-use-dialog'
+import { ref } from 'vue'
+// 使用 useSnackbar 鉤子創建一個 Snackbar，用來在頁面上顯示通知訊息
+
 // 引入 AOS 动画库
 import AOS from 'aos'
 // 引入 AOS 动画库的 CSS 文件
 import 'aos/dist/aos.css'
+// ------服務項目的---------------------------------
+const { api } = useApi() // 從 useApi 鉤子中取得 api 方法，用來與後端進行 API 通訊
+const createSnackbar = useSnackbar()
+
+// 使用 ref 定義一個反應式的空陣列，用來存儲產品資料
+const services = ref([])
+// 定義一個異步函數 loadServices，用來從伺服器加載產品資料
+const loadServices = async () => {
+  try {
+    // 使用 API 調用，從 '/service' 路徑獲取產品資料
+    const { data } = await api.get('/service', {
+      // 傳遞的參數包括每頁顯示的產品數量和當前頁碼
+      params: {
+        itemsPerPage: 0 // 設定 itemsPerPage 為 0，表示獲取所有產品
+      }
+    })
+    // 更新 services 反應式變數，先清空當前的產品列表，再加入新的資料
+    services.value.splice(0, services.value.length, ...data.result.data)
+  } catch (error) {
+    // 如果出現錯誤，打印錯誤訊息並顯示 Snackbar 提示用戶
+    console.log(error)
+    createSnackbar({
+      text: error?.response?.data?.message || '發生錯誤', // 顯示伺服器返回的錯誤訊息，或者使用預設訊息
+      snackbarProps: {
+        color: 'red'// 設置 Snackbar 顏色為紅色
+      }
+    })
+  }
+}
+loadServices()
+// -------------------------------------------
 // 初始化
 AOS.init()
 </script>

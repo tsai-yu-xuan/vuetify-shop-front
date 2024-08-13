@@ -20,28 +20,35 @@ import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 import { useSnackbar } from 'vuetify-use-dialog'
 import { ref } from 'vue'
-
+// 初始化用戶狀態、路由和 Snackbar 函數
 const user = useUserStore()
 const router = useRouter()
 const createSnackbar = useSnackbar()
-
+// 定義 props 來接收父組件傳遞的資料
 const props = defineProps(['_id', 'category', 'description', 'image', 'name', 'price', 'sell'])
-
+// 定義一個反應式變數 loading 用於控制按鈕的加載狀態
 const loading = ref(false)
 
+// 定義一個異步函數 addCart，用於將產品加入購物車
 const addCart = async () => {
+  // 如果用戶未登入，則跳轉到登入頁面
   if (!user.isLogin) {
     router.push('/login')
     return
   }
+  // 設置按鈕為加載狀態
   loading.value = true
+
+  // 調用用戶狀態管理中的 addCart 函數來將產品加入購物車
   const result = await user.addCart(props._id, 1)
+  // 顯示 Snackbar 提示用戶操作結果
   createSnackbar({
     text: result.text,
     snackbarProps: {
       color: result.color
     }
   })
+  // 加載完成，取消按鈕的加載狀態
   loading.value = false
 }
 </script>
