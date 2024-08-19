@@ -74,8 +74,9 @@
                   <v-btn to="/cart" icon><v-icon>mdi-cart</v-icon>
                     <v-badge color="red" :content="user.cart" v-if="'/cart' && user.cart > 0" floating></v-badge>
                   </v-btn>
-                  <!-- 訂單 -->
-                  <v-btn to="/orders" icon><v-icon>mdi-list-box</v-icon></v-btn>
+
+                   <!-- 使用者管理頁面 -->
+                  <v-btn to="/user" icon><v-icon>mdi-account</v-icon></v-btn>
                 </div>
                 <!-- 管理者登入顯示 -->
                 <div v-if="user.isAdmin">
@@ -200,7 +201,7 @@ const navItemsMobile = computed(() => {
     { to: '/register', text: '註冊', icon: 'mdi-account-plus', show: !user.isLogin },
     { to: '/login', text: '登入', icon: 'mdi-account-arrow-left', show: !user.isLogin },
     { to: '/cart', text: '購物車', icon: 'mdi-cart', show: user.isLogin },
-    { to: '/orders', text: '訂單', icon: 'mdi-list-box', show: user.isLogin },
+    { to: '/user', text: '個人首頁', icon: 'mdi-account', show: user.isLogin },
     { to: '/admin', text: '管理', icon: 'mdi-cog', show: user.isLogin && user.isAdmin }
   ]
 })

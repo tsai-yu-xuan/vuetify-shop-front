@@ -8,70 +8,7 @@
   </v-container>
 
 <!-- 3個 優惠專案 -->
-<v-container class="text-center">
-    <v-row class="text-brown card-title">
-      <v-col>優惠專案</v-col>
-    </v-row>
-    <v-row  class="card no-background">
-      <v-col cols="12" md="4">
-      <v-card class="no-background text-brown card-box">
-        <v-card-item>
-          <v-card-title class="padding">$000</v-card-title>
-          <v-card-title class="padding">親密團體火化專案</v-card-title>
-          <v-card-subtitle class="padding text-black">專案項目包含</v-card-subtitle>
-          <v-card-subtitle class="padding">團體火化</v-card-subtitle>
-          <v-card-subtitle class="padding">樹灑葬</v-card-subtitle>
-          <v-card-subtitle class="padding">文青追思牆</v-card-subtitle>
-        </v-card-item>
-
-        <v-card-text>
-          <v-btn class="mt-5 btn ">
-            <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
-          </v-btn>
-        </v-card-text>
-        <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
-      </v-card>
-    </v-col>
-    <v-col cols="12" md="4">
-      <v-card class=" text-brown card-box">
-        <v-card-item>
-          <v-card-title class="padding">$000</v-card-title>
-          <v-card-title class="padding">親密團體火化專案</v-card-title>
-          <v-card-subtitle class="padding text-black">專案項目包含</v-card-subtitle>
-          <v-card-subtitle class="padding">團體火化</v-card-subtitle>
-          <v-card-subtitle class="padding">樹灑葬</v-card-subtitle>
-          <v-card-subtitle class="padding">文青追思牆</v-card-subtitle>
-        </v-card-item>
-
-        <v-card-text>
-          <v-btn class="mt-5 btn ">
-            <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
-          </v-btn>
-        </v-card-text>
-        <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
-      </v-card>
-    </v-col>
-    <v-col cols="12" md="4">
-      <v-card class="no-background text-brown card-box">
-        <v-card-item>
-          <v-card-title class="padding">$000</v-card-title>
-          <v-card-title class="padding">親密團體火化專案</v-card-title>
-          <v-card-subtitle class="padding text-black">專案項目包含</v-card-subtitle>
-          <v-card-subtitle class="padding">團體火化</v-card-subtitle>
-          <v-card-subtitle class="padding">樹灑葬</v-card-subtitle>
-          <v-card-subtitle class="padding">文青追思牆</v-card-subtitle>
-        </v-card-item>
-
-        <v-card-text>
-          <v-btn class="mt-5 btn ">
-            <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
-          </v-btn>
-        </v-card-text>
-        <v-img><img class="img" src="../assets/indexSection03-1.jpeg"></v-img>
-      </v-card>
-    </v-col>
-  </v-row>
-  </v-container>
+<indexPrice :pageName />
 
 <!-- 服務流程------------------------------------ -->
   <v-container class="text-center">
@@ -254,6 +191,7 @@
 </template>
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import indexPrice from '@/components/indexPrice.vue'
 
 // 當你有一個名為 XXX.vue 的頁面組件時，你可以使用 definePage 來自動生成對應的 /about 路由。  下面用definePage
 import { definePage } from 'vue-router/auto'
@@ -270,6 +208,7 @@ definePage({
     admin: false
   }
 })
+const pageName = 'services'
 
 // 引入 ref 來定義響應式變量
 const isHidden = ref(false)

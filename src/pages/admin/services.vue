@@ -70,12 +70,6 @@
             v-model="category.value.value"
             :error-messages="category.errorMessage.value"
           ></v-select>
-          <v-text-field
-            label="電話"
-            type="number" min="0"
-            v-model="telephone.value.value"
-            :error-messages="telephone.errorMessage.value"
-          ></v-text-field>
           <v-checkbox
             label="上架"
             v-model="sell.value.value"
@@ -141,7 +135,6 @@ const openDialog = (item) => {
     price.value.value = item.price
     description.value.value = item.description
     category.value.value = item.category
-    telephone.value.value = item.telephone
     sell.value.value = item.sell
   } else {
     dialog.value.id = ''
@@ -174,10 +167,6 @@ const schema = yup.object({
     .test('isCategory', '商品分類錯誤', value => {
       return categories.includes(value)
     }),
-  telephone: yup
-    .number()
-    .typeError('服務項目電話格式錯誤')
-    .required('服務項目電話必填'),
   sell: yup
     .boolean()
 })
@@ -188,7 +177,6 @@ const { handleSubmit, isSubmitting, resetForm } = useForm({
     price: 0,
     description: '',
     category: '',
-    telephone: '',
     sell: true
   }
 })
@@ -196,7 +184,6 @@ const name = useField('name')
 const price = useField('price')
 const description = useField('description')
 const category = useField('category')
-const telephone = useField('telephone')
 const sell = useField('sell')
 
 const fileRecords = ref([])
@@ -213,7 +200,6 @@ const submit = handleSubmit(async (values) => {
     fd.append('price', values.price)
     fd.append('description', values.description)
     fd.append('category', values.category)
-    fd.append('telephone', values.telephone)
     fd.append('sell', values.sell)
 
     if (fileRecords.value.length > 0) {
@@ -256,7 +242,6 @@ const tableHeaders = [
   { title: '名稱', align: 'center', sortable: true, key: 'name' },
   { title: '價格', align: 'center', sortable: true, key: 'price' },
   { title: '分類', align: 'center', sortable: true, key: 'category' },
-  { title: '電話', align: 'center', sortable: true, key: 'telephone' },
   { title: '上架', align: 'center', sortable: true, key: 'sell' },
   { title: '操作', align: 'center', sortable: false, key: 'action' }
 ]

@@ -6,10 +6,13 @@ import { useUserStore } from '@/stores/user'
 // baseURL = x
 // axios.post('http://localhost:4000/user')
 
+// 創建一個 axios 實例，指定基礎 URL 為環境變數中的 VITE_API
+// 如果沒有指定，預設是 http://localhost:4000
 const api = axios.create({
   baseURL: import.meta.env.VITE_API
 })
 
+// 創建一個帶有身份驗證功能的 axios 實例
 const apiAuth = axios.create({
   baseURL: import.meta.env.VITE_API
 })
@@ -19,10 +22,12 @@ const apiAuth = axios.create({
 // 3. 送出
 // 4. interceptors.response
 // 5. .then() .catch()
+
+// 請求攔截器，添加 JWT 到請求標頭中
 apiAuth.interceptors.request.use(config => {
-  const user = useUserStore()
-  config.headers.Authorization = 'Bearer ' + user.token
-  return config
+  const user = useUserStore() // 獲取用戶狀態
+  config.headers.Authorization = 'Bearer ' + user.token // 在標頭中添加 JWT
+  return config // 返回修改後的請求配置
 })
 
 // 1. apiAuth.get(/user/profile)
@@ -33,7 +38,10 @@ apiAuth.interceptors.request.use(config => {
 // 6. 如果失敗，且是登入過期，自動傳送舊換新
 // 7. 舊換新成功，修改 apiAuth.get(/user/profile) 的 jwt 後重新送出
 // 8. 舊換新失敗，回傳 apiAuth.get(/user/profile) 的錯誤
+
+// 回應攔截器，用於處理請求成功和失敗的情況
 apiAuth.interceptors.response.use(res => {
+  // 請求成功，直接返回響應
   return res
 }, async error => {
   // 如果失敗有回應 (網路斷線也算是失敗，網路斷線不會有回應)
@@ -60,6 +68,7 @@ apiAuth.interceptors.response.use(res => {
   return Promise.reject(error)
 })
 
+// 將 api 和 apiAuth 實例導出，以便在其他地方使用
 export const useApi = () => {
   return { api, apiAuth }
 }

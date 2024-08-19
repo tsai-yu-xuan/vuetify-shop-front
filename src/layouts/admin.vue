@@ -1,4 +1,5 @@
 <template>
+  <div class="box">
   <v-navigation-drawer permanent class="bg">
     <v-list>
       <v-list-item :prepend-avatar="avatar" :title="user.account"></v-list-item>
@@ -14,6 +15,7 @@
   <v-main>
     <router-view></router-view>
   </v-main>
+  </div>
 </template>
 
 <script setup>
@@ -37,10 +39,15 @@ const avatar = computed(() => {
 <style scoped lang="scss">
 @import '@/styles/settings'; // 導入變數文件
 
-.v-main {
-  background: url('../assets/bg_black.png') repeat;
+// .v-main {
+//   backgrosund: url('../assets/bg_black.png') repeat;
+// }
+.box{
+  margin: 30px !important;
 }
 .bg{
   background: url('../assets/bg_black.png') repeat;
+  margin: 30px !important;
 }
+
 </style>

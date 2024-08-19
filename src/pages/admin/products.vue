@@ -6,9 +6,11 @@
       </v-col>
       <v-divider></v-divider>
       <div class="border">
+         <!-- 新增商品按鈕 -->
       <v-col cols="12">
         <v-btn class="btn" @click="openDialog(null)">新增商品</v-btn>
       </v-col>
+       <!-- 新增商品按鈕商品資料表 -->
       <v-col cols="12">
         <v-data-table-server
           v-model:items-per-page="tableItemsPerPage"
@@ -25,6 +27,7 @@
           hover
           class="no-background"
         >
+        <!-- 表格頂部的搜尋框 -->
           <template #top>
             <v-text-field
               label="搜尋"
@@ -34,12 +37,15 @@
               @keydown.enter="tableLoadItems(true)"
             ></v-text-field>
           </template>
+          <!-- 顯示商品圖片的插槽 -->
           <template #[`item.image`]="{ value }">
             <v-img :src="value" height="50px"></v-img>
           </template>
+          <!-- 顯示商品上架狀態的插槽 -->
           <template #[`item.sell`]="{ value }">
             <v-icon icon="mdi-check" v-if="value"></v-icon>
           </template>
+          <!-- 編輯按鈕的插槽 -->
           <template #[`item.action`]="{ item }">
             <v-btn icon="mdi-pencil" variant="text" color="white" @click="openDialog(item)"></v-btn>
           </template>
@@ -48,38 +54,45 @@
     </div>
     </v-row>
   </v-container>
+  <!-- 編輯或新增商品的對話框 -->
   <v-dialog v-model="dialog.open" persistent width="500">
     <v-form @submit.prevent="submit" :disabled="isSubmitting">
       <v-card>
         <v-card-title>{{ dialog.id ? '編輯商品' : '新增商品' }}</v-card-title>
         <v-card-text>
+          <!-- 商品名稱輸入框 -->
           <v-text-field
             label="名稱"
             v-model="name.value.value"
             :error-messages="name.errorMessage.value"
           ></v-text-field>
+           <!-- 商品價格輸入框 -->
           <v-text-field
             label="價格"
             type="number" min="0"
             v-model="price.value.value"
             :error-messages="price.errorMessage.value"
           ></v-text-field>
+          <!-- 商品分類選擇框 -->
           <v-select
             label="分類"
             :items="categories"
             v-model="category.value.value"
             :error-messages="category.errorMessage.value"
           ></v-select>
+          <!-- 商品上架狀態選擇框 -->
           <v-checkbox
             label="上架"
             v-model="sell.value.value"
             :error-messages="sell.errorMessage.value"
           ></v-checkbox>
+          <!-- 商品說明輸入框 -->
           <v-textarea
             label="說明"
             v-model="description.value.value"
             :error-messages="description.errorMessage.value"
           ></v-textarea>
+          <!-- 文件上傳組件 -->
           <vue-file-agent
             v-model="fileRecords"
             v-model:raw-model-value="rawFileRecords"
@@ -92,7 +105,9 @@
           ></vue-file-agent>
         </v-card-text>
         <v-card-actions>
+           <!-- 取消按鈕 -->
           <v-btn color="red" :loading="isSubmitting" @click="closeDialog">取消</v-btn>
+          <!-- 送出按鈕 -->
           <v-btn color="green" type="submit" :loading="isSubmitting">送出</v-btn>
         </v-card-actions>
       </v-card>
@@ -116,11 +131,12 @@ definePage({
   }
 })
 
+// 初始化 API 函數和 Snackbar 函數
 const { apiAuth } = useApi()
 const createSnackbar = useSnackbar()
 
+// 對話框的狀態和控制
 const fileAgent = ref(null)
-
 const dialog = ref({
   // 編輯對話框的狀態
   open: false,
@@ -128,6 +144,7 @@ const dialog = ref({
   id: ''
 })
 
+// 打開編輯或新增對話框
 const openDialog = (item) => {
   if (item) {
     dialog.value.id = item._id
@@ -141,14 +158,16 @@ const openDialog = (item) => {
   }
   dialog.value.open = true
 }
-
+// 關閉對話框
 const closeDialog = () => {
   dialog.value.open = false
   resetForm()
   fileAgent.value.deleteFileRecord()
 }
-
+// 商品分類選項
 const categories = ['鑰匙圈', '生態瓶', '盆栽']
+
+// 使用 yup 定義表單的驗證規則
 const schema = yup.object({
   name: yup
     .string()
@@ -170,6 +189,8 @@ const schema = yup.object({
   sell: yup
     .boolean()
 })
+
+// 使用 vee-validate 處理表單
 const { handleSubmit, isSubmitting, resetForm } = useForm({
   validationSchema: schema,
   initialValues: {
@@ -180,18 +201,20 @@ const { handleSubmit, isSubmitting, resetForm } = useForm({
     sell: true
   }
 })
+// 定義表單欄位
 const name = useField('name')
 const price = useField('price')
 const description = useField('description')
 const category = useField('category')
 const sell = useField('sell')
 
+// 文件上傳相關狀態
 const fileRecords = ref([])
 const rawFileRecords = ref([])
-
+// 提交表單數據
 const submit = handleSubmit(async (values) => {
-  if (fileRecords.value[0]?.error) return
-  if (dialog.value.id.length === 0 && fileRecords.value.length < 1) return
+  if (fileRecords.value[0]?.error) return // 驗證上傳文件是否有錯誤
+  if (dialog.value.id.length === 0 && fileRecords.value.length < 1) return // 若為新增商品，必須上傳文件
 
   try {
     const fd = new FormData()
@@ -206,12 +229,14 @@ const submit = handleSubmit(async (values) => {
       fd.append('image', fileRecords.value[0].file)
     }
 
+    // 根據對話框的狀態決定是新增還是編輯
     if (dialog.value.id === '') {
       await apiAuth.post('/product', fd)
     } else {
       await apiAuth.patch('/product/' + dialog.value.id, fd)
     }
 
+    // 顯示操作成功的提示
     createSnackbar({
       text: dialog.value.id === '' ? '新增成功' : '編輯成功',
       snackbarProps: {
