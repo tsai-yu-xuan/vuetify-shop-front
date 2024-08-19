@@ -1,12 +1,12 @@
 <template>
-  <v-container>
+  <v-container >
     <v-row>
       <v-col cols="12" class="title">
         <h1 class="text-center text-white">線上祭祀</h1>
-        <v-btn class="addBtn" @click="openDialog(null)">新增祭祀寶貝</v-btn>
-      </v-col>
+        </v-col>
       <div class="onlineWorships-box">
          <!-- 新增商品按鈕 -->
+         <v-btn class="addBtn" @click="openDialog(null)">新增祭祀寶貝</v-btn>
 
       <swiper
         class="swiper"
@@ -33,19 +33,24 @@
 
           <!-- <v-card-item> -->
             <v-card-title>{{ item.name }}</v-card-title>
-            <v-card-subtitle>忌日 {{ item.date }}</v-card-subtitle>
+            <v-card-subtitle>忌日 {{ item.createdAt }}</v-card-subtitle>
             <v-card-subtitle>{{ item.description }}</v-card-subtitle>
             <!-- 編輯按鈕 -->
-            <v-btn class="btn" icon="mdi-pencil" variant="text" color="white" @click="openDialog(item)"></v-btn>
+            <v-btn class="btn" icon="mdi-pencil" w-25 variant="text" color="white" @click="openDialog(item)"></v-btn>
           <!-- </v-card-item> -->
         </v-card>
     </v-col>
   </swiper-slide>
 </swiper>
-
+<v-row>
+    <v-col>
+      <onlineWorshipProduct class="overlay"></onlineWorshipProduct>
+    </v-col>
+  </v-row>
     </div>
     </v-row>
   </v-container>
+
   <!-- 編輯或新增商品的對話框 -->
   <v-dialog v-model="dialog.open" persistent width="500">
     <v-form @submit.prevent="submit" :disabled="isSubmitting">
@@ -76,6 +81,7 @@
         v-model="date.value.value"
         label="輸入寶貝忌日"
         :error-messages="date.errorMessage.value"
+        @change="aaa(value)"
       ></v-date-input>
 
           <v-textarea
@@ -108,7 +114,7 @@ import { useSnackbar } from 'vuetify-use-dialog'
 // 日期有錯
 import { VDateInput } from 'vuetify/labs/VDateInput'
 // import { format, utcToZonedTime } from 'date-fns-tz'
-// import onlineWorshipCard from '@/components/onlineWorshipCard.vue'
+import onlineWorshipProduct from '@/components/onlineWorshipProduct.vue'
 
 // ---Swiper-------------------------------------
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -144,6 +150,11 @@ const dialog = ref({
   // 紀錄編輯中的 id，沒有就是新增，有就是編輯
   id: ''
 })
+
+const aaa = (value) => {
+  // 查看已選取的時間
+  console.log(value)
+}
 
 // 打開編輯或新增對話框
 const openDialog = (item) => {
@@ -215,7 +226,10 @@ const submit = handleSubmit(async (values) => {
     fd.append('name', values.name)
     fd.append('description', values.description)
     // 日期有錯
-    fd.append('date', values.date)
+    const taipeiDate = new Date(values.date).toLocaleString('en-US', { timeZone: 'Asia/Taipei' })
+    fd.append('date', new Date(taipeiDate).toISOString())
+    console.log(values.date)
+
     if (fileRecords.value.length > 0) {
       fd.append('image', fileRecords.value[0].file)
     }
@@ -277,8 +291,16 @@ const cardLoadItems = async (reset) => {
         search: cardSearch.value
       }
     })
-    cardItems.value.splice(0, cardItems.value.length, ...data.result.data)
-    // console.log('cardItems', cardItems.value)
+    // 取出date的前10碼
+    const processedItems = data.result.data.map(item => {
+      return {
+        ...item,
+        createdAt: item.createdAt.slice(0, 10) // 截取日期的前10碼
+      }
+    })
+
+    cardItems.value.splice(0, cardItems.value.length, ...processedItems)
+    console.log('cardItems', cardItems.value)
 
     cardItemsLength.value = data.result.total
   } catch (error) {
@@ -296,6 +318,7 @@ cardLoadItems()
 </script>
 <style scoped lang="scss">
 @import "../../styles/settings.scss"; // 導入變數文件
+
 .bg {
   width: 75vw !important;
   margin: 3vw auto;
@@ -306,23 +329,24 @@ cardLoadItems()
   margin: 0;
 }
 
-.addBtn{
-  margin: 10px;
-  background: $ehp-black;
-  color: $ehp-yellow;
-  position: relative;
-  top: 20px;
-  left: 4%;
-}
-
 .onlineWorships-box{
   margin: 5px 40px;
   width: 92%;
   height: 768px;
   border-radius: 20px;
-  padding: 90px 0;
+  padding: 80px 0;
   background: url(../../assets/onlineWorships/onlineWorships-bg.png) no-repeat;
   background-size: 100%;
+  position: relative;
+}
+
+.addBtn{
+  margin: 10px;
+  background: $ehp-black;
+  color: $ehp-yellow;
+  position: absolute;
+  top: 10px;
+  left: 1%;
 }
 
 .card{
@@ -347,13 +371,21 @@ cardLoadItems()
   margin: auto;
 }
 .btn{
-  // background-color: $brown;
-  // color: white;
   margin-bottom: 10px;
-  position: relative;
-  top:-120px;
-  left:20%;
+  // position: relative;
+  top:-125px;
+  // left:1%;
   z-index:99;
+}
+.overlay{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 65%;
+  height: 100%;
+  // background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 </style>
 
