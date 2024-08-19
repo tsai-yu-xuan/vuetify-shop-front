@@ -81,7 +81,6 @@
         v-model="date.value.value"
         label="輸入寶貝忌日"
         :error-messages="date.errorMessage.value"
-        @change="aaa(value)"
       ></v-date-input>
 
           <v-textarea
@@ -150,11 +149,6 @@ const dialog = ref({
   // 紀錄編輯中的 id，沒有就是新增，有就是編輯
   id: ''
 })
-
-const aaa = (value) => {
-  // 查看已選取的時間
-  console.log(value)
-}
 
 // 打開編輯或新增對話框
 const openDialog = (item) => {
