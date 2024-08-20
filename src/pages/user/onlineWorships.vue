@@ -33,7 +33,7 @@
 
           <!-- <v-card-item> -->
             <v-card-title>{{ item.name }}</v-card-title>
-            <v-card-subtitle>忌日 {{ item.createdAt }}</v-card-subtitle>
+            <v-card-subtitle>忌日 {{ newDate(item.date) }}</v-card-subtitle>
             <v-card-subtitle>{{ item.description }}</v-card-subtitle>
             <!-- 編輯按鈕 -->
             <v-btn class="btn" icon="mdi-pencil" w-25 variant="text" color="white" @click="openDialog(item)"></v-btn>
@@ -77,11 +77,12 @@
           ></v-text-field>
               <!-- 日期輸入框 -->
               <!-- 日期有錯 -->
-              <v-date-input
-        v-model="date.value.value"
-        label="輸入寶貝忌日"
-        :error-messages="date.errorMessage.value"
-      ></v-date-input>
+              <v-text-field
+              type="date"
+              v-model="date.value.value"
+              label="輸入寶貝忌日"
+              :error-messages="date.errorMessage.value"
+             ></v-text-field>
 
           <v-textarea
             label="說明"
@@ -110,9 +111,7 @@ import * as yup from 'yup'
 import { useForm, useField } from 'vee-validate'
 import { useApi } from '@/composables/axios'
 import { useSnackbar } from 'vuetify-use-dialog'
-// 日期有錯
-import { VDateInput } from 'vuetify/labs/VDateInput'
-// import { format, utcToZonedTime } from 'date-fns-tz'
+
 import onlineWorshipProduct from '@/components/onlineWorshipProduct.vue'
 
 // ---Swiper-------------------------------------
@@ -157,12 +156,15 @@ const openDialog = (item) => {
     name.value.value = item.name
     description.value.value = item.description
     // 日期有錯
-    date.value.value = item.date
+    date.value.value = newDate(item.date)
     console.log('item', item)
   } else {
     dialog.value.id = '' // 先去dialog找id為空 所以是新增
   }
   dialog.value.open = true // 打開對話框
+}
+const newDate = (dateString) => {
+  return new Date(dateString).toISOString().split('T')[0]
 }
 // 關閉對話框
 const closeDialog = () => {
@@ -219,10 +221,18 @@ const submit = handleSubmit(async (values) => {
     // fd.append(key, value)
     fd.append('name', values.name)
     fd.append('description', values.description)
+
+    // const newDate = (dateString) => {
+    //   new Date(dateString).toISOString().split('T')[0]
+    // }
+    fd.append('date', values.date)
+
     // 日期有錯
-    const taipeiDate = new Date(values.date).toLocaleString('en-US', { timeZone: 'Asia/Taipei' })
-    fd.append('date', new Date(taipeiDate).toISOString())
-    console.log(values.date)
+    // const taipeiDate = new Date(values.date).toLocaleString('en-US', { timeZone: 'Asia/Taipei' })
+    // console.log(taipeiDate)
+
+    // fd.append('date', new Date(taipeiDate).toISOString())
+    // console.log(values.date)
 
     if (fileRecords.value.length > 0) {
       fd.append('image', fileRecords.value[0].file)
@@ -243,7 +253,7 @@ const submit = handleSubmit(async (values) => {
       }
     })
     closeDialog()
-    cardLoadItems(true)
+    cardLoadItems()
   } catch (error) {
     console.log(error)
     createSnackbar({

@@ -83,18 +83,18 @@ onMounted(() => {
     yoyo: true // 反向播放
   })
   gsap.to('.img1-3', {
-    scale: 2,
-    x: 500,
-    y: 100,
-    duration: 1.5 // 動畫時間1.5秒
+    scale: 1.8,
+    x: 2,
+    y: 0,
+    duration: 1.5, // 動畫時間1.5秒
+    transformOrigin: '0% 0%' // 設置變換原點為左上角
   })
   gsap.to('.img1-2', {
-    scale: 2,
-    x: 100, // 向左移動100px
+    scale: 1.8,
+    x: 0, // 向左移動100px
     y: 0, // 向下移動100px
     duration: 1.5, // 動畫時間1.5秒
     transformOrigin: '100% 0%' // 設置變換原點為右上角
-
   })
 })
 
