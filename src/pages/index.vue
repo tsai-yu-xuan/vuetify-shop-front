@@ -9,7 +9,6 @@
   >
     <swiper-slide>
       <div class="image-container">
-      <!-- <v-img class="img1-1" src="../assets/banner-1/banner-1.png"></v-img> -->
       <div class="img1-1"></div>
 
       <img class="img1-4" src="../assets/banner-1/banner-1-4.png" alt="">
@@ -68,11 +67,11 @@ import 'swiper/css'
 import { Autoplay } from 'swiper/modules'
 
 import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 // 解構
 import { onMounted } from 'vue'
 
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 // 在組件掛載後執行 GSAP 動畫
 onMounted(() => {
@@ -96,6 +95,20 @@ onMounted(() => {
     y: 0, // 向下移動100px
     duration: 2, // 動畫時間1.5秒
     transformOrigin: '100% 0%' // 設置變換原點為右上角
+  })
+  gsap.from('.image-container', {
+    scrollTrigger: {
+      trigger: '.image-container', // 觸發動畫的元素
+      start: '40% 30%', // 當元素的頂部到達視口頂部時開始動畫
+      end: '0 60%', // 當元素的底部到達視口底部時結束動畫
+      scrub: 10, // 平滑滾動，值越大動畫越慢
+      markers: true
+    },
+    // yPercent: -50, // 元素沿著 y 軸向上移動 50%
+    // xPercent: -20, // 元素沿著 x 軸向左移動 40%
+    scale: 1.2, // 將元素縮放至 2 倍大小
+    // rotation: 50
+    duration: 2
   })
 })
 
@@ -152,9 +165,9 @@ top:75%;
 }
 /* swiper 第一張組圖----------------------------------- */
 .image-container {
-    position: relative;
+    /* position: relative; */
     width: 100%;
-    height: 100vh;
+    height: 102vh;
     overflow: hidden;
 }
 /* swiper 第一張組圖-背景------------------------------- */

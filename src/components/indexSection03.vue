@@ -1,5 +1,5 @@
 <template>
-  <v-container class="text-left text-padding"
+  <v-container class="text-left text-padding "
   data-aos="fade-right"
   data-aos-easing="ease-out-cubic"
   data-aos-duration="3000"
@@ -8,7 +8,8 @@
   data-aos-delay="0500">
     <p>環保改念園區</p>
   </v-container>
-
+<v-container class="bg-img">
+</v-container>
 <!--
 data-aos="fade-right"               使用 AOS 庫為元素添加從右側滑入的動畫效果
 data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
