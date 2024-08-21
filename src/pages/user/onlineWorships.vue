@@ -325,6 +325,7 @@ cardLoadItems()
 
 .bg {
   width: 75vw !important;
+  // height: 80vh;
   margin: 3vw auto;
 }
 .title{
@@ -336,7 +337,7 @@ cardLoadItems()
 .onlineWorships-box{
   margin: 5px 40px;
   width: 92%;
-  height: 768px;
+  height: 740px;
   border-radius: 20px;
   padding: 80px 0;
   background: url(../../assets/onlineWorships/onlineWorships-bg.png) no-repeat;
@@ -365,7 +366,7 @@ cardLoadItems()
 
 .swiper{
   width: 30%;
-  height: 52%;
+  height: 55%;
 }
 
 .img{
@@ -383,11 +384,11 @@ cardLoadItems()
 }
 .overlay{
   position: absolute;
-  top: 35%;
+  top:32%;
   left: 50%;
   transform: translate(-50%, 0%);
   width: 65%;
-  height: 100%;
+  height: 65%;
   // background: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }

@@ -27,6 +27,7 @@ const user = useUserStore()
 const navItems = [
   { to: '/user/orders', text: '訂單查詢', icon: 'mdi-list-box' },
   { to: '/user/onlineWorships', text: '線上祭祀', icon: 'mdi-hands-pray' },
+  { to: '/user/online', text: '測試', icon: 'mdi-hands-pray' },
   { to: '/', text: '回首頁', icon: 'mdi-home' }
 ]
 
