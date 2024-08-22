@@ -6,7 +6,7 @@
   data-aos-offset="150"
   data-aos-once="true"
   data-aos-delay="0500">
-    <h1>環保改念園區</h1>
+    <h1>環保概念園區</h1>
 
   </v-container>
 <v-container class="bg-img">
@@ -18,26 +18,27 @@ data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
   data-aos-offset="200"             當元素距離視口頂部 200 像素時觸發動畫
   data-aos-delay="000">             動畫延遲時間設置為 0 毫秒
 -->
-<v-container class=" text-center">
-  <div>
+<v-container class="text-center">
     <v-row class="GroupImghight d-lg-flex">
+      <!-- 左邊第一張 -->
       <v-col cols="12" md="4" class="p-img"><v-img :src="images[0]"></v-img></v-col>
       <v-col cols="12" md="4" class="flex-column">
         <v-row cols="12" xl="6">
+          <!-- 中間上面 -->
           <v-col class="p-img-2"><v-img :src="images[1]"></v-img></v-col>
         </v-row>
         <v-row cols="12" xl="6">
           <v-col cols="12" xl="4">
             <v-row>
-              <v-col xl="6" class="s-img p-img"><v-img :src="images[2]"></v-img></v-col>
-              <v-col xl="6" class="s-img p-img"><v-img :src="images[3]"></v-img></v-col>
+              <v-col xl="6" class="s-img"><v-img :src="images[2]"></v-img></v-col>
+              <v-col xl="6" class="s-img"><v-img :src="images[3]"></v-img></v-col>
             </v-row>
           </v-col>
         </v-row>
       </v-col>
       <v-col cols="12" md="4" class="p-img"><v-img :src="images[4]"></v-img></v-col>
     </v-row>
-  </div>
+
     <v-row class="d-lg-none">
       <v-col class="d-flex justify-content-center" style="margin: auto; ">
         <swiper
@@ -67,10 +68,16 @@ data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
       </v-col>
     </v-row>
 
-    <v-btn class="mt-5 btn">
-      <router-link to="/ParkInfo" class="btn-text">更多園區介紹</router-link>
-    </v-btn>
   </v-container>
+
+    <v-row>
+      <v-col cols="12"  class="btn-auto">
+        <v-btn class="btn">
+          <router-link to="/ParkInfo" class="btn-text ">更多園區介紹</router-link>
+        </v-btn>
+      </v-col>
+    </v-row>
+
 </template>
 
 <script setup>
@@ -132,7 +139,13 @@ onMounted(() => {
 .GroupImghight{
   height: 34vw;
   margin: 5px;
-  padding: 2px;
+  // padding: 2px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 550px;
+  position: relative;
+  // top: -14px;
 }
 
 .text-padding {
@@ -140,6 +153,8 @@ onMounted(() => {
   font-size:2.3rem;
   padding: 5px;
   padding-left: 20px;
+  letter-spacing : 0.4rem;
+  font-style: italic;
 }
 h1{
   position: relative;
@@ -155,8 +170,8 @@ h1::before{
   filter: drop-shadow(8px 8px #4e4e4e);
   font-style: italic;
   position: absolute;
-  left: 45%;
-  top: -50px;
+  left: 43%;
+  top: -35px;
   z-index: -1;
 }
 
@@ -177,11 +192,22 @@ h1::before{
   // height: 540px;
 }
 
+.s-img{
+  padding: 3px !important;
+  width: 100%;
+  height: 280px;
+}
+
+.btn-auto{
+  text-align: center;
+}
+
 .btn{
   background-color: $ehp-grey;
-  padding: 0px 1vw;
+  // padding: 0px 1vw;
   border-radius: 20px;
-  margin-top: 20 !important;
+  // margin-top: 5px !important;
+  margin: 0 auto;
   // margin: 4vw 0;
 }
 .btn-text{
