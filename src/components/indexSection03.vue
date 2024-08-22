@@ -6,7 +6,8 @@
   data-aos-offset="150"
   data-aos-once="true"
   data-aos-delay="0500">
-    <p>環保改念園區</p>
+    <h1>環保改念園區</h1>
+
   </v-container>
 <v-container class="bg-img">
 </v-container>
@@ -18,7 +19,8 @@ data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
   data-aos-delay="000">             動畫延遲時間設置為 0 毫秒
 -->
 <v-container class=" text-center">
-    <v-row class="GroupImghight d-md-flex">
+  <div>
+    <v-row class="GroupImghight d-lg-flex">
       <v-col cols="12" md="4" class="p-img"><v-img :src="images[0]"></v-img></v-col>
       <v-col cols="12" md="4" class="flex-column">
         <v-row cols="12" xl="6">
@@ -35,7 +37,8 @@ data-aos-easing="ease-out-cubic"    動畫緩動效果設置為 'ease-out-cubic'
       </v-col>
       <v-col cols="12" md="4" class="p-img"><v-img :src="images[4]"></v-img></v-col>
     </v-row>
-    <v-row class="d-md-none">
+  </div>
+    <v-row class="d-lg-none">
       <v-col class="d-flex justify-content-center" style="margin: auto; ">
         <swiper
     :effect="'coverflow'"
@@ -119,29 +122,42 @@ onMounted(() => {
 <style scoped lang="scss">
 @import '@/styles/settings'; // 導入變數文件
 
-/* 針對小尺寸螢幕隱藏原有的圖片佈局 */
-@media (max-width: 992px) {
+/* 針對1280px以下的螢幕尺寸隱藏原有的圖片佈局 */
+@media (max-width: 1280px) {
   .GroupImghight {
     display: none;
   }
 }
-// .container{
-//   width: 100vw;
-//   padding: 5px !important;
-//   margin: auto;
-// }
 
 .GroupImghight{
-  height: 35vw;
+  height: 34vw;
   margin: 5px;
   padding: 2px;
 }
 
 .text-padding {
   color: $ehp-grey;
-  font-size: 20px;
+  font-size:2.3rem;
   padding: 5px;
   padding-left: 20px;
+}
+h1{
+  position: relative;
+}
+h1::before{
+  content: "ParkInfo";
+  font-size: 10rem;
+  background: url(../assets/index-img/about-bg-03.png);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 30%;
+  opacity: 0.7;
+  filter: drop-shadow(8px 8px #4e4e4e);
+  font-style: italic;
+  position: absolute;
+  left: 45%;
+  top: -50px;
+  z-index: -1;
 }
 
 .img{
@@ -150,9 +166,6 @@ onMounted(() => {
   overflow: hidden;
 }
 
-// .s-img{
-//   height: 247.11px;
-// }
 .p-img{
   padding: 5px !important;
   width: 100%;
@@ -168,8 +181,8 @@ onMounted(() => {
   background-color: $ehp-grey;
   padding: 0px 1vw;
   border-radius: 20px;
-  margin-top: 3vw !important;
-  margin: 4vw 0;
+  margin-top: 20 !important;
+  // margin: 4vw 0;
 }
 .btn-text{
   color: $ehp-white;

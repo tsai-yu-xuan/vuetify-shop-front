@@ -35,7 +35,7 @@
             <v-card-subtitle class="padding"><p v-html="service.description"></p></v-card-subtitle>
           </v-card-item>
           <v-card-text>
-            <v-btn class="mt-5 btn ">
+            <v-btn class="mt-5 btn">
               <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
             </v-btn>
           </v-card-text>
@@ -214,8 +214,5 @@ justify-content: center;
   color: $ehp-black !important;
   text-decoration: none !important;
 }
-.btn{
-  display: flex;
-  justify-content: center;
-}
+
 </style>

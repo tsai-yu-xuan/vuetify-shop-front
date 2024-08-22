@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-   <h1>鼠兔的永恆居所，讓幸福常駐心間</h1>
+    <h2>鼠兔的永恆居所，讓幸福常駐心間</h2>
    <v-row class="img-two">
     <v-col>
       <div>
@@ -13,8 +13,10 @@
       </div>
     </v-col>
    </v-row>
+   <Marquee class="text-English-small" loop="-1"> Eternal Haven of Pikas</Marquee>
 
   </div>
+
 </template>
 
 <script setup>
@@ -66,60 +68,95 @@ onMounted(() => {
 
 <style scoped lang="scss">
 @import '@/styles/settings'; // 導入變數文件
-.container{
+
+.container {
+  width: 100%;
+  margin: auto;
   color: $ehp-brown;
-  margin-bottom: 2rem;
-  padding-top: 8vw;
-  padding-bottom: 8vw;
+  margin-top: 15rem;
+  margin-bottom: 1rem;
+  padding-top: 1vw;
+  // padding-bottom: vw;
   text-align: center;
-}
-@media (max-width: 768px) {
-  .container{
-  h1{
-    font-size: 4vw;
-    font-weight: 700;
-    padding-bottom: 5vw;
-  }
-  .img-two{
-    width: 100%;
-    display: flex;
-    margin: auto;
-    justify-content: space-between;
-    img{
-      position: relative;
-      top: -60px;
-      width: 50%;
-    }
-  }
-}
-}
-@media (min-width: 768px) {
-  .container{
-  h1{
+  h2{
     font-size: 2rem;
     font-weight: 700;
     padding-bottom: 2vw;
+    color: $ehp-black;
+    opacity: 0.5;
+    position: relative;
+    top: 80px; /* 調整為正值，使文字在 h2 標題下面 */
+    z-index: 1;
   }
-  .img-two{
-    width:60vw;
-    display: flex;
-    margin: auto;
-    height: 50px;
 
-    .flower{
-      position: relative;
-      top: -100px;
-      left: -50px;
-      width: 40%;
-    }
-    .grass{
-      position: relative;
-      top: -100px;
-    right: -50px;
-      width: 40%;
-    }
+  Marquee {
+    font-size: 15rem;
+    font-weight: 700;
+    padding-bottom: 2vw;
+    color: $ehp-yellow;
+    opacity: 0.5;
+    position: relative;
+    top: -160px; /* 调整为正值，使文字在 h2 标题下面 */
+    z-index: 1;
   }
 }
-}
+
+// @media (max-width: 768px) {
+//   .container {
+//     h2 {
+//       font-size: 4vw;
+//       font-weight: 700;
+//       padding-bottom: 5vw;
+//       z-index: 99;
+//     }
+
+//     .img-two {
+//       width: 100%;
+//       display: flex;
+//       margin: auto;
+//       justify-content: space-between;
+
+//       img {
+//         position: relative;
+//         top: -60px;
+//         width: 50%;
+//       }
+//     }
+//   }
+// }
+
+// @media (min-width: 768px) {
+//   .container {
+//     h2 {
+//       font-size: 2rem;
+//       font-weight: 700;
+//       padding-bottom: 2vw;
+//       color: $ehp-brown;
+//       opacity: 0.5;
+//       z-index: 99;
+//     }
+
+//     .img-two {
+//       width: 60vw;
+//       display: flex;
+//       margin: auto;
+//       height: 50px;
+
+//       .flower {
+//         position: relative;
+//         top: -100px;
+//         left: -50px;
+//         width: 40%;
+//       }
+
+//       .grass {
+//         position: relative;
+//         top: -100px;
+//         right: -50px;
+//         width: 40%;
+//       }
+//     }
+//   }
+// }
 
 </style>
