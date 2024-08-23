@@ -1,17 +1,16 @@
 <template>
   <v-container >
-    <div class="image-container">
-    <img class="img1-4" src="../../assets/banner-1/banner-1-4.png" alt="Image">
-</div>
+    <testT />
   </v-container>
 </template>
 
 <script setup>
-
+import testT from '@/components/testT.vue'
 </script>
 
 <style scoped lang="scss">
 @import "@/styles/settings"; // 導入變數文件
+
 .image-container {
     position: relative; /* 設置任務容器為 relative，作為圖片定位的參考點 */
     width: 100%;

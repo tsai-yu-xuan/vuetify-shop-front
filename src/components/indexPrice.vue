@@ -4,23 +4,23 @@
   </v-container>
   <!-- 3個 優惠專案 -->
   <v-container class="text-center">
-    <v-row class="text-brown card-title" >
-      <v-col>服務項目</v-col>
+    <v-row  >
+      <v-col class="text-brown card-title"><h1>服務項目</h1></v-col>
     </v-row>
     <v-row class="d-flex m-auto">
 
       <div class="menu" v-if="pageName.pageName !== 'services'">
       <div>
-        <v-btn class="mt-5 btn" @click="servicesBtn('優惠專案')">優惠專案</v-btn>
+        <v-btn class=" btn" @click="servicesBtn('優惠專案')">優惠專案</v-btn>
       </div>
       <div>
-        <v-btn class="mt-5 btn " @click="servicesBtn('個別火化')">個別火化</v-btn>
+        <v-btn class=" btn " @click="servicesBtn('個別火化')">個別火化</v-btn>
       </div>
       <div>
-        <v-btn class="mt-5 btn " @click="servicesBtn('團體火化')">團體火化</v-btn>
+        <v-btn class=" btn " @click="servicesBtn('團體火化')">團體火化</v-btn>
       </div>
       <div >
-        <v-btn class="mt-5 btn " @click="servicesBtn('紀念飾品區')">紀念飾品區</v-btn>
+        <v-btn class=" btn " @click="servicesBtn('紀念飾品區')">紀念飾品區</v-btn>
       </div>
     </div>
     </v-row>
@@ -28,18 +28,18 @@
       <v-col cols="12" md="4"
       v-for="service in services" :key="service._id">
         <v-card class="no-background text-brown card-box">
-          <v-card-item>
+          <v-card-item class="card-item">
             <v-card-title class="padding">${{ service.price }}</v-card-title>
             <v-card-title class="padding"> {{ service.name }}</v-card-title>
             <v-card-subtitle class="padding text-black">專案項目包含</v-card-subtitle>
             <v-card-subtitle class="padding"><p v-html="service.description"></p></v-card-subtitle>
           </v-card-item>
           <v-card-text>
-            <v-btn class="mt-5 btn">
+            <v-btn class=" btn">
               <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
             </v-btn>
           </v-card-text>
-          <v-img :src="service.image" cover height="200"></v-img>
+          <v-img :src="service.image" cover class="card-img"></v-img>
         </v-card>
       </v-col>
     </v-row>
@@ -133,23 +133,32 @@ onMounted(() => {
 @import "@/styles/settings"; // 導入變數文件
 
 .card-title{
-  font-size: 40px;
+  font-size:2.3rem;
   padding-top: 4vw;
-  padding-bottom: 0.5vw;
+  // padding-bottom: 0.5vw;
+  padding: 0px !important;
+  margin-bottom: 2rem;
 }
-
+// card背景
 .card-box{
+  width: 100%;
+  height: 550px;
   font-size: 40px;
-  padding-top: 4vw;
-  padding-bottom: 1vw;
+  padding-top: 2vw;
+  // padding-bottom: 1vw;
   border-radius: 200px 200px 0 0;
   background: $ehp-white !important;
   box-shadow: 0 0 0 0 !important;
 }
+.card-item{
+  width: 100%;
+  height: 250px;
+  display: block;
+}
 
 .btn{
   background-color: $ehp-grey;
-  padding: 0px 1vw;
+  // padding: 0px 1vw;
   border-radius: 20px;
   margin: 0.5vw;
 }
@@ -176,14 +185,15 @@ onMounted(() => {
 
 .card{
   margin:2vw 0 !important;
+  height: 800px;
 }
 //卡片區做RWD
  @media (min-width: 959px) {
   .card{
   padding-bottom:5vw ;
   width:50%;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   }
  }
 
@@ -205,14 +215,17 @@ justify-content: center;
   height: 100%;
 }
 
-.card{
-  background: #bcbcbc;
-}
 .card-title{
   font-size: 20px;
   font-weight: bold;
   color: $ehp-black !important;
   text-decoration: none !important;
+}
+.card-img{
+  // border: 3px solid #000;
+  width: 100%;
+  height: 200px;
+// margin: 10px;
 }
 
 </style>

@@ -39,7 +39,8 @@
   <!-- Slogan -->
   <SloganText />
   <!-- 組圖 -->
-  <indexSection03 />
+  <indexSection03 ></indexSection03>
+  <div class="watercolour-Circle"></div>
   <!-- Slogan-鼠兔永恆居所的使命 -->
   <SloganText2 />
   <!-- 服務項目 -->
@@ -197,7 +198,6 @@ top:75%;
   top: 0%;
   left: -5%;
   width: 60%;
-  /* height: 100%; */
   z-index: 97;
 }
 /*  swiper 第一張組圖-右邊樹------------------------------ */
@@ -208,5 +208,28 @@ top:75%;
   width: 60%;
   /* height: 100%; */
   z-index: 97;
+}
+
+.watercolour-Circle{
+  width: 500px;
+  height: 100px;
+  position: relative;
+  top: -600px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.watercolour-Circle::before {
+  content: "";
+  position: absolute;
+  top: 530%; /* 图片垂直居中 */
+  left: -60%; /* 图片水平居中 */
+  width: 700px; /* 图片实际展示的宽度，可超出容器宽度 */
+  height: 700px; /* 图片实际展示的高度，可超出容器高度 */
+  background: url(../assets/index-img/watercolour-Circle.png) no-repeat center;
+  background-size: contain;
+  transform: translate(-50%, -50%) rotate(100deg);
+  z-index: -1; /* 将伪元素置于容器下方 */
 }
 </style>

@@ -21,21 +21,21 @@
 
 <script setup>
 // 解構
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 // 引入gsap
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 // 引入 AOS 动画库
 import AOS from 'aos'
 // 引入 AOS 动画库的 CSS 文件
 import 'aos/dist/aos.css'
 
-onMounted(() => {
-  gsap.from('#section01-btns', {
-    opacity: 0,
-    x: -1000,
-    duration: 6
-  })
-})
+// onMounted(() => {
+//   gsap.from('#section01-btns', {
+//     opacity: 0,
+//     x: -1000,
+//     duration: 6
+//   })
+// })
 // 初始化
 AOS.init()
 </script>
@@ -52,7 +52,7 @@ padding: 30px;
   color: $ehp-brown;
   margin-bottom: 2rem;
   padding-top: 10vw;
-  padding-bottom: 8vw;
+  padding-bottom: 10vw;
   position: relative;
   h1{
     font-size: 2.5rem;

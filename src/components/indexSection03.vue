@@ -1,5 +1,5 @@
 <template>
-  <v-container class="text-left text-padding "
+  <v-container class="text-left text-h1 "
   data-aos="fade-right"
   data-aos-easing="ease-out-cubic"
   data-aos-duration="3000"
@@ -145,12 +145,12 @@ onMounted(() => {
   width: 100%;
   height: 550px;
   position: relative;
-  // top: -14px;
+  z-index: 2;
 }
 
-.text-padding {
+.text-h1 {
   color: $ehp-grey;
-  font-size:2.3rem;
+  font-size:2.5rem !important;
   padding: 5px;
   padding-left: 20px;
   letter-spacing : 0.4rem;

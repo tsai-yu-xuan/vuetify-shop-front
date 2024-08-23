@@ -9,14 +9,14 @@
   <div class="bg-grey">
     <v-container class="text-center">
       <v-row class="bg-grey why">
-        <v-col  cols="12" md="6" class="d-flex align-center">
-          <div class="AboutUsdiv">
+        <v-col  cols="12" md="7" class="d-flex align-center">
+          <div class="tree">
           <div class="AboutUsImg"></div>
         </div>
         </v-col>
 
-        <v-col id="text2" cols="12" md="6" class="d-flex align-center">
-          <div>
+        <v-col cols="12" md="5" class="d-flex align-center">
+          <div id="text2" >
             <h1>為什麽想成立<br />鼠兔永恆居所？</h1>
             <br />
             <p>
@@ -69,7 +69,7 @@
       <v-col>服務理念</v-col>
     </v-row>
     <v-row  class="card">
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" class="card-3">
       <v-card class="no-background text-brown">
         <v-card-item>
           <v-card-title class="padding">專業用心</v-card-title>
@@ -82,7 +82,7 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col cols="12" md="4"  class="card-3">
       <v-card class="no-background text-brown">
         <v-card-item>
           <v-card-title class="padding">環保永續</v-card-title>
@@ -95,7 +95,7 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col cols="12" md="4"  class="card-3">
       <v-card class="no-background text-brown">
         <v-card-item>
           <v-card-title class="padding">簡約慎重</v-card-title>
@@ -108,7 +108,6 @@
         </v-card-text>
       </v-card>
 
-      <div class="text-center text-caption">Using Markup Only</div>
     </v-col>
   </v-row>
   </v-container>
@@ -245,6 +244,83 @@ AOS.init()
   color: $ehp-grey;
   margin-bottom: 3vw;
 }
+.tree{
+  width: 500px;
+  height: 100px;
+  position: relative;
+  top: -168px;
+  left: 0%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.tree::before{
+  content: '';
+  position: absolute;
+  background: url(../assets/tree-bg.png) no-repeat ;
+  background-size: contain;
+  z-index: -1; /* 将伪元素置于容器下方 */
+}
+
+@media (min-width: 1280px) {
+  .tree::before {
+    top: -4vw; /* 图片垂直位置 */
+    left: 6vw; /* 图片水平位置 */
+    width: 900px; /* 图片宽度 */
+    height: 700px; /* 图片高度 */
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  .tree::before {
+    top: -4vw; /* 图片垂直位置 */
+    left: 6vw; /* 图片水平位置 */
+    width: 800px; /* 图片宽度 */
+    height: 700px; /* 图片高度 */
+    opacity: 0.8; /* 透明度 */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+  .tree::before {
+    top: 5vw; /* 图片垂直位置 */
+    left: 40%; /* 图片水平位置 */
+    width: 110vw; /* 图片宽度 */
+    height: 700px; /* 图片高度 */
+    opacity: 0.7; /* 透明度 */
+  }
+  #text2{
+    position: relative;
+    top: -5vw;
+    left: 25vw;
+  }
+}
+
+@media (max-width: 599px) {
+  .tree::before {
+    top: 28vw; /* 图片垂直位置 */
+    left: 40%; /* 图片水平位置 */
+    width: 110vw; /* 图片宽度 */
+    height: 700px; /* 图片高度 */
+    opacity: 0.7; /* 透明度 */
+  }
+  #text2{
+    position: relative;
+    top: -5vw;
+    left: 20vw;
+  }
+}
+
+// @media (max-width: 599px) {
+//   .tree::before {
+//     top: 0%;
+//     left: 0%;
+//     width: 100%;
+//     height: auto;
+//     opacity: 0.7; /* 透明度 */
+//   }
+// }
+
 .why{
   padding: 5vw 0;
 }
@@ -270,8 +346,11 @@ AOS.init()
 
 #text2 {
   text-align: left;
+  z-index: 99;
 }
 #text3 {
+  margin: 15vw 0;
+  padding-top: 10vw;
   // text-align: left;
   color: $ehp-black;
   p {
@@ -287,6 +366,11 @@ AOS.init()
 
 .card{
   padding-bottom:10vw ;
+}
+
+.card-3{
+  background: url(../assets/index-img/watercolour-Circle.png) no-repeat;
+  background-size: 100% 100%;
 }
 .padding{
   padding: 0.5vw 0;
