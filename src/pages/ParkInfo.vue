@@ -11,7 +11,7 @@
   data-aos-once="true"
   data-aos-delay="0500">
     <div class="text-white text-Chinese parkInfo">園區介紹</div>
-    <div class="parkInfoImg text-center" >
+    <div class="parkInfo-p text-center" >
       <p class="text-black text-Chinese padding">鼠兔永恆居所園區位於新北市泰山區，佔地約1000坪，環境清幽，空氣清新，是一個專為鼠兔設計的永恆居所。</p>
         <p class="text-black
           text-Chinese padding">園區內設有樹灑葬區、花灑葬區、寵物植栽區和文青追思牆，提供多樣化的葬禮服務，讓每一隻鼠兔都能在這裡找到最適合的安息之所。</p>
@@ -40,7 +40,7 @@
   </v-container>
 
 <!-- 3個 服務理念 -->
-<v-container fluid class="text-center service-philosophy">
+<v-container fluid class="text-center service-philosophy container100">
   <v-container>
     <v-row class="text-yellow card-title">
       <v-col>服務理念</v-col>
@@ -130,39 +130,43 @@
       </v-row>
     </v-container>
 
-  <v-container class="container text-center">
-      <v-row >
-        <v-col id="text2" cols="12" md="6" class="d-flex align-center text-grey">
-          <div>
-            <h1>花灑葬區</h1>
-            <br />
-            <p>
-              鼠兔花灑葬區是一個專為鼠兔設計的自然葬禮區域。<br />
-              這裡提供花葬服務，將鼠兔的骨灰灑在美麗的花卉中，<br />
-              讓生命回歸自然，促進花卉生長，象徵生命的延續和循環。<br />
-              園區環境寧靜而莊重，為家屬提供一個安靜的告別場所，<br />
-              讓他們能在自然之中與鼠兔作最後的告別。<br />
-              鼠兔花灑葬區，讓愛與自然相融，讓每一隻鼠兔都能在花卉的懷抱中安息。<br />
-              <v-btn class="mt-5 btn ">
-               <router-link to="/ContactUs" class="btn-text ">立即預約</router-link>
-              </v-btn>
-            </p>
-          </div>
-        </v-col>
-        <v-col id="img2" cols="12" md="6" class="d-flex align-center">
-          <div>
-            <img
-              src="../assets/garden01.png"
-              data-aos="zoom-out-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              data-aos-offset="200"
-              data-aos-delay="000"
-            />
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-container class="container text-center">
+  <v-row>
+    <!-- 在大螢幕上，文本在左，圖片在右 -->
+    <!-- 在小螢幕上，調換順序，圖片在上，文本在下 -->
+    <v-col id="img2" cols="12" md="6" class="d-flex align-center order-md-2 order-sm-1">
+      <div>
+        <img
+          src="../assets/garden01.png"
+          data-aos="zoom-out-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="3000"
+          data-aos-offset="200"
+          data-aos-delay="000"
+          height="500px"
+        />
+      </div>
+    </v-col>
+
+    <v-col id="text2" cols="12" md="6" class="d-flex align-center text-grey order-md-1 order-sm-2">
+      <div>
+        <h1>花灑葬區</h1>
+        <br />
+        <p>
+          鼠兔花灑葬區是一個專為鼠兔設計的自然葬禮區域。<br />
+          這裡提供花葬服務，將鼠兔的骨灰灑在美麗的花卉中，<br />
+          讓生命回歸自然，促進花卉生長，象徵生命的延續和循環。<br />
+          園區環境寧靜而莊重，為家屬提供一個安靜的告別場所，<br />
+          讓他們能在自然之中與鼠兔作最後的告別。<br />
+          鼠兔花灑葬區，讓愛與自然相融，讓每一隻鼠兔都能在花卉的懷抱中安息。<br />
+          <v-btn class="mt-5 btn">
+            <router-link to="/ContactUs" class="btn-text">立即預約</router-link>
+          </v-btn>
+        </p>
+      </div>
+    </v-col>
+  </v-row>
+</v-container>
 
     <v-container class="container text-center">
       <v-row >
@@ -201,10 +205,10 @@
 
     <v-container class="text-center">
       <v-row>
-        <v-col id="img2" cols="12" class="d-flex align-center">
+        <v-col id="photo-wall" cols="12" class="d-flex align-center">
           <div class="img">
             <img
-              src="../assets/indexSection03-1.jpeg"
+              src="../assets/photo-wall.png"
               data-aos="zoom-in"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="3000"
@@ -298,8 +302,9 @@ onMounted(() => {
     scrollTrigger: {
       trigger: '.flower', // 觸發動畫的元素
       start: 'top -5%', // 當元素的頂部到達視口頂部時開始動畫
-      end: 'bottom 60%', // 當元素的底部到達視口底部時結束動畫
+      end: 'bottom 50%', // 當元素的底部到達視口底部時結束動畫
       scrub: 5 // 平滑滾動，值越大動畫越慢
+      // markers: 'true'
     },
     yPercent: -50, // 元素沿著 y 軸向上移動 50%
     xPercent: -40, // 元素沿著 x 軸向左移動 40%
@@ -309,8 +314,8 @@ onMounted(() => {
   gsap.to('.grass', {
     scrollTrigger: {
       trigger: '.grass', // 觸發動畫的元素
-      start: 'top -45%x', // 當元素的頂部到達視口頂部時開始動畫
-      end: 'bottom 60%', // 當元素的底部到達視口底部時結束動畫
+      start: 'top -35%x', // 當元素的頂部到達視口頂部時開始動畫
+      end: 'bottom 50%', // 當元素的底部到達視口底部時結束動畫
       scrub: 5 // 平滑滾動，值越大動畫越慢
     },
     yPercent: -50, // 元素沿著 y 軸向上移動 50%
@@ -349,12 +354,12 @@ onMounted(() => {
 .parkInfo{
   font-size: 5rem;
   position: absolute;
-  top: -2500%;
+  top: -650px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.parkInfoImg{
+.parkInfo-p{
   width: 75%;
   background: rgba($color: $ehp-grey, $alpha: 0.7);
   padding: 1rem;
@@ -363,6 +368,30 @@ onMounted(() => {
   left: 50%;
   transform:translate(-50%, -50%);
   // z-index: 99;
+}
+@media (max-width: 1280px) {
+  .parkInfo{
+    font-size: 3rem;
+    top: -500px;
+  }
+  .parkInfo-p{
+    width: 100%;
+    top: -1000%;
+  }
+}
+@media (max-width: 959px) {
+  .parkInfo{
+position: relative;
+    font-size: 2rem;
+    top: -300px;
+    left: 90%;
+  }
+  .parkInfo-p{
+    position: relative;
+    width: 100%;
+    top: -200px;
+    font-size: 0.6rem;
+  }
 }
 .slogan-container{
   padding-top: 10vw !important;
@@ -405,6 +434,13 @@ onMounted(() => {
   color: $ehp-black;
   margin-bottom: 1.5vw;
 }
+@media (max-width: 768px) {
+  .title1 {
+  font-size: 15px;
+  color: $ehp-black;
+  margin-bottom: 1.5vw;
+}
+}
 .title2 {
   font-size: 18px;
   color: $ehp-grey;
@@ -412,7 +448,7 @@ onMounted(() => {
 }
 
 #img2 {
-  height: 500px !important;
+  height: 600px !important;
   // background: #ce9a9a;
   img {
     width: 100%;
@@ -496,5 +532,14 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+#photo-wall{
+  width: 100%;
+  height:500px;
+  img{
+    width: 100%;
+    height: 500px;
+  }
 }
 </style>

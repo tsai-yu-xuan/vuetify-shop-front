@@ -1,5 +1,5 @@
 <template>
-  <v-container class="">
+  <v-container class="w-100">
     <v-row>
       <v-col cols="12">
         <h1 class="text-center text-white">服務項目管理</h1>
@@ -148,7 +148,7 @@ const closeDialog = () => {
   fileAgent.value.deleteFileRecord()
 }
 
-const categories = ['優惠專案', '個別火化', '團體火化', '紀念飾品區']
+const categories = ['優惠專案', '個別火化', '團體火化']
 const schema = yup.object({
   name: yup
     .string()

@@ -7,15 +7,10 @@
         <h1 class="text-center title1 text-black text-Chinese">線上購物</h1>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12" md="5" class="no-padding image-container">
-        <div class="image-container">
-          <v-img class="text" src="https://picsum.photos/300/200/?random=10"></v-img>
-          <h1 class="text-overlay">寵物紀鑰匙圈</h1>
-        </div>
-      </v-col>
+    <v-row class="product-div">
+
       <v-col
-        cols="12" md="2" lg="2" class="pl-5 pr-3"
+        cols="12" md="4" lg="3" class="pl-3 pr-3 mb-5"
         v-for="product in products" :key="product._id"
       >
         <ProductCard v-bind="product"></ProductCard>
@@ -137,27 +132,43 @@ loadProducts()
   padding-bottom: 8vw !important;
 }
 
-.image-container {
-  // width: 60%;
-  position: relative;
-  // display: inline-block;
-  margin-right: 10%;
-  // display: block;
+.product-div{
+  width: 60vw;
   margin: 0 auto;
 }
-
-.text-overlay {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 24px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  z-index: 1;
+// @media (min-width: 1280px) {
+//   .product-div{
+//   width: 60vw;
+//   margin: 0 auto;
+// }
+// }
+@media (min-width: 1280px) and (max-width: 1700px) {
+  .product-div{
+  width: 70vw;
+  margin: 0 auto;
 }
-
-v-img {
-  display: block;
 }
+// .image-container {
+//   // width: 60%;
+//   position: relative;
+//   // display: inline-block;
+//   margin-right: 10%;
+//   // display: block;
+//   margin: 0 auto;
+// }
+
+// .text-overlay {
+//   position: absolute;
+//   top: 10%;
+//   left: 15%;
+//   transform: translate(-50%, -50%);
+//   color: white;
+//   font-size: 24px;
+//   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+//   z-index: 1;
+// }
+
+// v-img {
+//   display: block;
+// }
 </style>

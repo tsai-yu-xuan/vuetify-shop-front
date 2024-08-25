@@ -71,7 +71,7 @@
           ></vue-file-agent>
           <!-- 商品名稱輸入框 -->
           <v-text-field
-            label="名稱"
+            label="寶貝名稱"
             v-model="name.value.value"
             :error-messages="name.errorMessage.value"
           ></v-text-field>
@@ -85,7 +85,7 @@
              ></v-text-field>
 
           <v-textarea
-            label="說明"
+            label="可以跟寶貝說說話"
             v-model="description.value.value"
             :error-messages="description.errorMessage.value"
           ></v-textarea>
@@ -179,14 +179,14 @@ const closeDialog = () => {
 const schema = yup.object({
   name: yup
     .string()
-    .required('商品名稱必填'),
+    .required('寶貝名稱必填'),
   description: yup
     .string()
-    .required('商品說明必填'),
+    .required('可以跟寶貝說說話喔'),
   // 日期有錯
   date: yup
     .string()
-    .required('日期必填')
+    .required('寶貝忌日必填')
     .typeError('無效的日期格式')
 
 })
@@ -337,13 +337,13 @@ cardLoadItems()
 .onlineWorships-box{
   margin: 5px 40px;
   width: 92%;
-  height: 740px;
+  height: 790px;
   border-radius: 20px;
   padding: 80px 0;
   background: url(../../assets/onlineWorships/onlineWorships-bg.png) no-repeat;
   background-size: 100%;
   position: relative;
-}
+  }
 
 .addBtn{
   margin: 10px;
@@ -380,18 +380,19 @@ cardLoadItems()
   // position: relative;
   top:-125px;
   // left:1%;
-  z-index:99;
+  z-index:99 !important;
 }
 .overlay{
   position: absolute;
-  top:32%;
-  left: 50%;
+  top:39%;
+  left: 51%;
   transform: translate(-50%, 0%);
   width: 65%;
-  height: 65%;
+  height: 55%;
   // background: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
+
 </style>
 
 <route lang="yaml">

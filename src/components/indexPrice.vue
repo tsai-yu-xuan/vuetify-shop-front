@@ -1,7 +1,5 @@
 <template>
-  <v-container>
-    <!-- <div><hr></div> -->
-  </v-container>
+
   <!-- 3個 優惠專案 -->
   <v-container class="text-center">
     <v-row  >
@@ -9,7 +7,7 @@
     </v-row>
     <v-row class="d-flex m-auto">
 
-      <div class="menu" v-if="pageName.pageName !== 'services'">
+      <div class="menu indexPrice" v-if="pageName.pageName !== 'services'">
       <div>
         <v-btn class=" btn" @click="servicesBtn('優惠專案')">優惠專案</v-btn>
       </div>
@@ -19,9 +17,7 @@
       <div>
         <v-btn class=" btn " @click="servicesBtn('團體火化')">團體火化</v-btn>
       </div>
-      <div >
-        <v-btn class=" btn " @click="servicesBtn('紀念飾品區')">紀念飾品區</v-btn>
-      </div>
+
     </div>
     </v-row>
     <v-row  class="card no-background" >
@@ -116,8 +112,6 @@ const servicesBtn = async (type) => {
     services.value = services.value.filter(service => service.category === '個別火化')
   } else if (type === '團體火化') {
     services.value = services.value.filter(service => service.category === '團體火化')
-  } else if (type === '紀念飾品區') {
-    services.value = services.value.filter(service => service.category === '紀念飾品區')
   }
 }
 // -------------------------------------------
@@ -142,7 +136,7 @@ onMounted(() => {
 // card背景
 .card-box{
   width: 100%;
-  height: 550px;
+  height: 70vh;
   font-size: 40px;
   padding-top: 2vw;
   // padding-bottom: 1vw;
@@ -185,7 +179,6 @@ onMounted(() => {
 
 .card{
   margin:2vw 0 !important;
-  height: 800px;
 }
 //卡片區做RWD
  @media (min-width: 959px) {
@@ -225,7 +218,11 @@ onMounted(() => {
   // border: 3px solid #000;
   width: 100%;
   height: 200px;
+  overflow:hidden;
 // margin: 10px;
+}
+.indexPrice{
+  z-index: 99;
 }
 
 </style>

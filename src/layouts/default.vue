@@ -1,6 +1,6 @@
 <template >
   <!-- 手機版側欄 -->
-  <v-navigation-drawer v-if="mobile" v-model="drawer">
+  <v-navigation-drawer v-if="mobile" v-model="drawer" class="mobile">
     <v-list nav>
       <template v-for="item in navItemsMobile" :key="item.to">
         <v-list-item
@@ -84,7 +84,7 @@
                     <v-badge color="red" :content="user.cart" v-if="'/cart' && user.cart > 0" floating></v-badge>
                   </v-btn>
                   <!-- 訂單 -->
-                  <v-btn to="/orders" icon><v-icon>mdi-list-box</v-icon></v-btn>
+                  <v-btn to="/admin/orders" icon><v-icon>mdi-list-box</v-icon></v-btn>
                   <!-- 管理 -->
                   <v-btn to="/admin" icon><v-icon>mdi-cog</v-icon></v-btn>
                 </div>
@@ -119,27 +119,27 @@
           <v-col cols="12" md="9" class="text-center">
             <v-row>
               <v-col cols="6" md="2" class="no-padding ">
-                <v-list class="no-background brown">
-                  <p class="text-black">關於我們</p>
-                  <v-list-item><a href="/" class="no-text-decoration ">1234</a></v-list-item>
-                  <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
-                  <v-list-item><a href="/" class="no-text-decoration">33</a></v-list-item>
+                <v-list class="no-background brown  item">
+                  <p class="text-black">頁面連結</p>
+                  <v-list-item> <router-link to="/AboutUs" class="no-text-decoration">關於我們</router-link></v-list-item>
+                  <v-list-item> <router-link to="/ParkInfo" class="no-text-decoration">園區介紹</router-link></v-list-item>
+                  <v-list-item> <router-link to="/Services" class="no-text-decoration">服務項目</router-link></v-list-item>
                 </v-list>
               </v-col>
               <v-col cols="6" md="2" class="no-padding">
-                <v-list class="no-background text-brown ">
+                <v-list class="no-background text-brown item">
                   <p class="text-black">服務項目</p>
-                  <v-list-item><a href="/" class="no-text-decoration ">優惠專案</a></v-list-item>
-                  <v-list-item><a href="/" class="no-text-decoration">團體火化</a></v-list-item>
-                  <v-list-item><a href="/" class="no-text-decoration">個人火化</a></v-list-item>
+                  <v-list-item > <router-link to="/Services" class="no-text-decoration">優惠專案</router-link></v-list-item>
+                  <v-list-item> <router-link to="/Services" class="no-text-decoration">團體火化</router-link></v-list-item>
+                  <v-list-item> <router-link to="/Services" class="no-text-decoration">個人火化</router-link></v-list-item>
                 </v-list>
               </v-col>
               <v-col cols="6" md="4" class="no-padding">
-                <v-list class="no-background text-brown text-left" >
+                <v-list class="no-background text-brown text-left">
                   <!-- <p class="text-black">聯絡我們</p> -->
-                  <v-list-item class="footer-textSize no-padding"><a href="/" class="no-text-decoration left">聯絡電話:02-0000-0000 </a></v-list-item>
-                  <v-list-item class="footer-textSize no-padding"><a href="/" class="no-text-decoration">服務時間:9:00-21:00</a></v-list-item>
-                  <v-list-item class="footer-textSize no-padding"><a href="/" class="no-text-decoration">聯絡地址:243新北市泰山區貴子里致遠新村55之1號</a></v-list-item>
+                  <v-list-item class="footer-textSize no-padding">聯絡電話:02-0000-0000</v-list-item>
+                  <v-list-item class="footer-textSize no-padding">服務時間:9:00-21:00</v-list-item>
+                  <v-list-item class="footer-textSize no-padding">聯絡地址: <br>243新北市泰山區貴子里致遠新村55之1號</v-list-item>
                 </v-list>
               </v-col>
               <v-col cols="6" md="4" class="no-padding">
@@ -246,7 +246,12 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 @import '@/styles/settings'; // 導入變數文件
+// 手機版側欄
+.mobile{
+  background: $ehp-grey;
+}
 .brown{
+
   color: $ehp-brown; // 自定義顏色
 }
 // 透明 navbar
@@ -294,4 +299,9 @@ onUnmounted(() => {
 .footer-textSize{
   font-size: 15px;
 }
+
+.item{
+  font-size: 14px !important;
+}
+
 </style>

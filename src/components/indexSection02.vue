@@ -70,6 +70,19 @@ AOS.init()
   }
 }
 
+@media (max-width: 959px) {
+  #img2 {
+    img {
+      width: 100%;
+      overflow: hidden;
+      // left: 20%;
+      position: absolute;
+      bottom: -10%;
+      top: 0%;
+      left: 0;
+    }
+  }
+}
 #text2 {
   width: 92%;
   // border: 2px solid #000;
@@ -117,7 +130,11 @@ AOS.init()
   color: transparent;
   background-size: 30%;
 }
-
+@media (max-width: 959px) {
+  #text2::before{
+    display: none; /* 顯示為區塊，使其在數字上方 */
+  }
+}
 // .about::before{
 //   content: "";
 //   position: absolute;

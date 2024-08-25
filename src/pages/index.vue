@@ -40,9 +40,12 @@
   <SloganText />
   <!-- 組圖 -->
   <indexSection03 ></indexSection03>
+  <!-- 背景圓水彩 -->
   <div class="watercolour-Circle"></div>
+
   <!-- Slogan-鼠兔永恆居所的使命 -->
   <SloganText2 />
+
   <!-- 服務項目 -->
   <indexPrice />
 
@@ -102,8 +105,8 @@ onMounted(() => {
       trigger: '.image-container', // 觸發動畫的元素
       start: '40% 30%', // 當元素的頂部到達視口頂部時開始動畫
       end: '0 60%', // 當元素的底部到達視口底部時結束動畫
-      scrub: 10, // 平滑滾動，值越大動畫越慢
-      markers: true
+      scrub: 10 // 平滑滾動，值越大動畫越慢
+      // markers: true
     },
     // yPercent: -50, // 元素沿著 y 軸向上移動 50%
     // xPercent: -20, // 元素沿著 x 軸向左移動 40%
@@ -210,26 +213,4 @@ top:75%;
   z-index: 97;
 }
 
-.watercolour-Circle{
-  width: 500px;
-  height: 100px;
-  position: relative;
-  top: -600px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-}
-
-.watercolour-Circle::before {
-  content: "";
-  position: absolute;
-  top: 530%; /* 图片垂直居中 */
-  left: -60%; /* 图片水平居中 */
-  width: 700px; /* 图片实际展示的宽度，可超出容器宽度 */
-  height: 700px; /* 图片实际展示的高度，可超出容器高度 */
-  background: url(../assets/index-img/watercolour-Circle.png) no-repeat center;
-  background-size: contain;
-  transform: translate(-50%, -50%) rotate(100deg);
-  z-index: -1; /* 将伪元素置于容器下方 */
-}
 </style>

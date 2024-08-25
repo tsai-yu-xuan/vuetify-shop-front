@@ -15,17 +15,17 @@
     <v-row class="text-brown card-title">
       <v-col>服務流程</v-col>
     </v-row>
-    <v-row class="text-brown process-img">
-      <v-img src="https://picsum.photos/1920/800/?random=10"></v-img>
+    <v-row class="text-brown process-img ">
+      <v-img src="../assets/flowChart.png"></v-img>
     </v-row>
   </v-container>
-
+<!-- 個別火化 -->
     <v-container class="text-center">
       <v-row >
         <v-col id="img2" cols="12" md="6" class="d-flex align-center">
           <div>
             <img
-              src="https://picsum.photos/800/500/?random=10"
+              src="../assets/rabbit-04.png"
               data-aos="zoom-out-right"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="3000"
@@ -35,159 +35,87 @@
           </div>
         </v-col>
 
-        <v-col id="text2" cols="12" md="6" class="d-flex align-center text-grey">
+        <v-col id="text2" cols="12" md="6" class="d-flex align-center text-brown">
           <div>
-            <h1>樹灑葬區</h1>
+            <h2 class="text-h2 ">個別火化</h2>
+            <br>
+            <h1>專案價</h1>
+            <h3>NT$ 3,000（適用於250g以內）</h3>
+            <h4 class="text-grey ">（超過250g後）單價：每增加1g NT$ 1（超過250g後，每增加1g）</h4>
             <br />
-            <p>
-              鼠兔樹灑葬區位於綠意盎然的園區內，提供環保的樹葬服務。<br />
-              將鼠兔的骨灰灑在樹下，讓生命以自然形式延續。<br />
-              這種方式不僅促進樹木生長，象徵生命的循環與延續。<br />
-              園區環境安靜莊重，讓家屬在自然中為鼠兔送行，感受寧靜與和諧。<br />
-              鼠兔樹灑葬區，讓愛與自然共存，讓每一隻鼠兔都能回歸大自然的懷抱。<br />
-            </p>
+            <div class="div-ul">
+              <ul>
+              <li>附贈環保骨灰罐</li>
+              <li>個別火化享有10天免費冰存</li>
+            </ul>
+            </div>
+
+            <div class="div-p">
+              <p>專屬為每隻鼠兔提供尊重且環保的告別方式，並可選擇樹灑葬/花灑葬<br>
+                另可加購 居家植栽 / 生態瓶</p>
+            </div>
+            <v-row>
+        <v-col cols="12">
+          <v-btn class="mt-5 btn ">
+            <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
+          </v-btn>
+        </v-col>
+      </v-row>
           </div>
         </v-col>
       </v-row>
     </v-container>
 
   <v-container class="text-center">
-      <v-row >
-        <v-col id="text2" cols="12" md="6" class="d-flex align-center text-grey">
-          <div>
-            <h1>花灑葬區</h1>
-            <br />
-            <p>
-              鼠兔花灑葬區是一個專為鼠兔設計的自然葬禮區域。<br />
-              這裡提供花葬服務，將鼠兔的骨灰灑在美麗的花卉中，<br />
-              讓生命回歸自然，促進花卉生長，象徵生命的延續和循環。<br />
-              園區環境寧靜而莊重，為家屬提供一個安靜的告別場所，<br />
-              讓他們能在自然之中與鼠兔作最後的告別。<br />
-              鼠兔花灑葬區，讓愛與自然相融，讓每一隻鼠兔都能在花卉的懷抱中安息。<br />
-            </p>
-          </div>
-        </v-col>
-        <v-col id="img2" cols="12" md="6" class="d-flex align-center">
-          <div>
-            <img
-              src="https://picsum.photos/800/500/?random=10"
-              data-aos="zoom-out-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              data-aos-offset="200"
-              data-aos-delay="000"
-            />
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <v-container class="text-center">
-      <v-row >
-        <v-col id="img2" cols="12" md="6" class="d-flex align-center">
-          <div>
-            <img
-              src="https://picsum.photos/800/500/?random=10"
-              data-aos="zoom-out-right"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              data-aos-offset="200"
-              data-aos-delay="000"
-            />
-          </div>
-        </v-col>
-
-        <v-col id="text2" cols="12" md="6" class="d-flex align-center text-grey">
-          <div>
-            <h1>寵物植栽</h1>
-            <br />
-            <p>
-              鼠兔寵物植栽提供一種獨特的方式來紀念您的鼠兔。<br />
-              我們將鼠兔的骨灰與植物土壤混合，並栽種在精美的植栽容器中，<br />
-              讓生命以綠意延續。<br />
-              每一個植栽都是專門設計的，既美觀又富有意義，能夠在您的家庭中成為一個永恆的回憶。<br />
-              這種方式不僅環保，還能促進植物的生長，象徵著鼠兔生命的延續和循環。<br />
-              鼠兔寵物植栽，讓愛與自然共生，記錄您與鼠兔的珍貴時光。<br />
-            </p>
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
-
-  <v-container class="text-center">
-      <v-row >
-        <v-col id="text2" cols="12" md="6" class="d-flex align-center text-grey">
-          <div>
-            <h1>樹灑葬區</h1>
-            <br />
-            <p>
-              鼠兔樹灑葬區位於綠意盎然的園區內，提供環保的樹葬服務。<br />
-              將鼠兔的骨灰灑在樹下，讓生命以自然形式延續。<br />
-              這種方式不僅促進樹木生長，象徵生命的循環與延續。<br />
-              園區環境安靜莊重，讓家屬在自然中為鼠兔送行，感受寧靜與和諧。<br />
-              鼠兔樹灑葬區，讓愛與自然共存，讓每一隻鼠兔都能回歸大自然的懷抱。<br />
-            </p>
-          </div>
-        </v-col>
-        <v-col id="img2" cols="12" md="6" class="d-flex align-center">
-          <div>
-            <img
-              src="https://picsum.photos/800/500/?random=10"
-              data-aos="zoom-out-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              data-aos-offset="200"
-              data-aos-delay="000"
-            />
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
-  <v-container>
     <v-row>
-      <v-col id="text3" cols="12" md="7" class="d-flex align-center">
-        <div>
-          <img
-            src="https://picsum.photos/496/600/?random=10"
-            data-aos="zoom-out-left"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="3000"
-            data-aos-offset="200"
-            data-aos-delay="000"
-          />
-        </div>
-      </v-col>
-      <v-col id="img2" cols="12" md="5" class="d-flex align-center">
-        <div class="pl-5 ">
-          <h1>台灣唯一鼠兔服務的生命禮儀</h1>
-          <br />
-          <p class="text-grey">
-            鼠兔永恆居所是台灣唯一專注於提供鼠兔生命禮儀服務的品牌。<br />
-            我們了解鼠兔在家庭中的重要性，並致力於為鼠兔提供尊重且環保的告別儀式。<br />
-            透過我們的專業服務，<br />
-            讓每一隻鼠兔都能以最自然和尊嚴的方式離開，回歸大自然的懷抱。<br />
-          </p>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+    <!-- 在大螢幕上，文本在左，圖片在右 -->
+    <!-- 在小螢幕上，調換順序，圖片在上，文本在下 -->
+    <v-col id="img2" cols="12" md="6" class="d-flex align-center order-md-2 order-sm-1">
+      <div>
+        <img
+          src="../assets/rabbit-mouse.png"
+          data-aos="zoom-out-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="3000"
+          data-aos-offset="200"
+          data-aos-delay="000"
+          height="500px"
+        />
+      </div>
+    </v-col>
 
-  <!-- <v-container class="text-center">
-      <v-row>
-        <v-col id="img2" cols="12" class="d-flex align-center">
+    <v-col id="text2" cols="12" md="6" class="d-flex align-center text-brown">
           <div>
-            <img
-              src="https://picsum.photos/1200/500/?random=10"
-              data-aos="zoom-in"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              data-aos-offset="200"
-              data-aos-delay="000"
-            />
-          </div>
+            <h2 class="text-h2 ">團體火化</h2>
+            <br>
+            <h1>專案價</h1>
+            <h3>NT$ 2,000（適用於1000g以內）</h3>
+            <h4 class="text-grey ">（超過250g後）單價：每增加1g NT$ 1（超過250g後，每增加1g）</h4>
+            <br />
+            <div class="div-ul">
+              <ul>
+              <li>可選擇樹灑葬/花灑葬</li>
+              <li>個別火化享有10天免費冰存</li>
+            </ul>
+            </div>
+
+            <div class="div-p">
+              <p>提供經濟實惠且環保的選擇，讓多隻鼠兔一起告別，<br>
+                火化後可選擇樹花灑葬，回歸自然。</p>
+            </div>
+            <v-row>
+        <v-col cols="12">
+          <v-btn class="mt-5 btn ">
+            <router-link to="/ContactUs" class="btn-text ">聯絡我們</router-link>
+          </v-btn>
         </v-col>
       </v-row>
-    </v-container> -->
+          </div>
+        </v-col>
+  </v-row>
+
+    </v-container>
+
 </template>
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -272,7 +200,7 @@ AOS.init()
 }
 
 #img2 {
-  height: 500px !important;
+  // height: 500px !important;
   // background: #ce9a9a;
   img {
     width: 100%;
@@ -280,7 +208,14 @@ AOS.init()
     overflow: hidden;
   }
 }
-
+.text-h2{
+  text-align: start;
+  font-weight: 900;
+  background: url(../assets/index-img/about-bg-03.png);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 30%;
+}
 #text2 {
   text-align: left;
   // color: $ehp-black;
@@ -352,10 +287,36 @@ AOS.init()
 .process-img{
   width: 100%;
   height: 30vw;
+  margin: auto !important;
 }
 .img{
   padding: 1vw;
   width: 100%;
   height: 100%;
+  opacity: 0.6;
+}
+// 價目表介紹區
+.div-ul{
+  padding-left: 20px;
+}
+.div-p{
+  background: $ehp-brown !important;
+  color: azure;
+  margin-top: 16px;
+  padding: 10px;
+}
+// 按鈕
+.btn{
+  background-color: $ehp-grey;
+  padding: 0px 1vw;
+  border-radius: 20px;
+  // margin-left: 25vw;
+}
+.btn-text{
+  color: $ehp-white;
+  text-decoration: none  !important; /* 移除底線 */
+  line-height: 16px;
+  font-size:15px;
+  font-weight: bold;
 }
 </style>

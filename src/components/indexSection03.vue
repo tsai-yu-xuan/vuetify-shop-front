@@ -87,11 +87,11 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 import { ref, onMounted } from 'vue'
-import img01 from '../assets/indexSection03-7.jpg'
-import img02 from '../assets/indexSection03-1.jpeg'
-import img03 from '../assets/indexSection03-2.jpg'
+import img01 from '../assets/park.png'
+import img02 from '../assets/photo-wall.png'
+import img03 from '../assets/indexSection03-7.jpg'
 import img04 from '../assets/indexSection03-3.jpg'
-import img05 from '../assets/indexSection03-5.jpg'
+import img05 from '../assets/indexSection03-4.jpg'
 import img06 from '../assets/indexSection03-6.jpg'
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -155,9 +155,11 @@ onMounted(() => {
   padding-left: 20px;
   letter-spacing : 0.4rem;
   font-style: italic;
+
 }
 h1{
   position: relative;
+  z-index: 99;
 }
 h1::before{
   content: "ParkInfo";
@@ -174,7 +176,30 @@ h1::before{
   top: -35px;
   z-index: -1;
 }
+@media (max-width: 1279px){
+  .text-h1 {
+    font-size: 1.5rem !important;
+    z-index: 99;
+  }
+  h1::before{
+    font-size: 8rem;
+  }
+}
+@media (max-width: 895px){
+  .text-h1 {
+position: relative;
+top: -2%;
+left: 25%;
+    z-index: 99;
+  }
+  h1::before{
+    position: absolute;
+    top: 125%;
+    left: -13%;
 
+    font-size: 8rem;
+  }
+}
 .img{
   height: 100%;
   width: 100%;
@@ -217,6 +242,7 @@ h1::before{
   font-size:15px;
   font-weight: bold;
 }
+
 //swiper 內的樣式----------------------
 .swiper {
   width: 100%;

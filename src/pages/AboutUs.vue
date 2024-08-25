@@ -70,7 +70,7 @@
     </v-row>
     <v-row  class="card">
       <v-col cols="12" md="4" class="card-3">
-      <v-card class="no-background text-brown">
+      <v-card class="no-background text-brown ">
         <v-card-item>
           <v-card-title class="padding">專業用心</v-card-title>
 
@@ -189,8 +189,8 @@ onMounted(() => {
       trigger: '.AboutUsdiv',
       start: '-40% 40%',
       end: '50% top',
-      scrub: true,
-      markers: true // 顯示標記點
+      scrub: true
+      // markers: true // 顯示標記點
     }
   })
   gsap.to('.mouseImg', {
@@ -201,8 +201,8 @@ onMounted(() => {
       trigger: '.mousediv',
       start: '0% 40%',
       end: 'center top',
-      scrub: true,
-      markers: true // 顯示標記點
+      scrub: true
+      // markers: true // 顯示標記點
     }
   })
 })
@@ -367,11 +367,20 @@ AOS.init()
 .card{
   padding-bottom:10vw ;
 }
+@media (max-width: 959px) {
+  .card{
+
+   margin: 0 10%;
+  }
+
+}
 
 .card-3{
   background: url(../assets/index-img/watercolour-Circle.png) no-repeat;
   background-size: 100% 100%;
+  // max-width: 700px !important;
 }
+
 .padding{
   padding: 0.5vw 0;
 }

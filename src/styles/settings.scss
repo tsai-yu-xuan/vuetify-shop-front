@@ -28,6 +28,8 @@ $ehp-yellow: #E1C370;
 .text-Chinese {
   font-family: "LXGW WenKai TC", cursive;
 }
+// allContainer 設定最大尺寸是 1900px
+
 
 // 去除留白 -----------------------------
 .no-padding {
@@ -84,6 +86,13 @@ box-shadow: none !important; /* 強制移除陰影 */
 .text-yellow {
   color: $ehp-yellow !important;
   margin: auto;
+}
+
+.v-container{
+  max-width: 1200px !important;
+}
+.container100{
+  max-width: 100%!important;
 }
 
 //filter: saturate(0.1); // 設定文字飽和度為

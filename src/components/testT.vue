@@ -1,43 +1,48 @@
-<template >
-  <v-row class="bg">
-    <v-col cols="12" sm="6" >
-      <v-hover v-slot="{ isHovering, props }" open-delay="200">
-        <v-card
-          :class="{ 'on-hover': isHovering }"
-          :elevation="isHovering ? 16 : 2"
-          class="mx-auto"
-          height="350"
-          max-width="350"
-          v-bind="props"
+<template>
+  <div>
+    <v-hover v-slot="{ isHovering, props }">
+      <v-card
+        class="mx-auto"
+        color="grey-lighten-4"
+        max-width="600"
+        v-bind="props"
+      >
+        <v-img
+          :aspect-ratio="16/9"
+          :src="image"
+          cover
         >
-          <v-card-text
-            class="font-weight-medium mt-12 text-center text-subtitle-1"
-          >
-            Open Delay (Mouse enter)
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
+          <v-expand-transition>
+            <div
+              v-if="isHovering"
+              class="d-flex transition-fast-in-fast-out bg-orange-darken-2 v-card--reveal text-h2"
+              style="height: 100%;"
+            >
+            ${{ price }}
+            </div>
+          </v-expand-transition>
+        </v-img>
 
-    <v-col cols="12" sm="6">
-      <v-hover v-slot="{ isHovering, props }" close-delay="200">
-        <v-card
-          :class="{ 'on-hover': isHovering }"
-          :elevation="isHovering ? 16 : 2"
-          class="mx-auto"
-          height="350"
-          max-width="350"
-          v-bind="props"
-        >
-          <v-card-text
-            class="font-weight-medium mt-12 text-center text-subtitle-1"
-          >
-            Close Delay (Mouse leave)
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-  </v-row>
+        <v-card-text class="pt-6">
+          <div class="font-weight-light text-grey text-h6 mb-2">
+            For the perfect meal
+          </div>
+
+          <h3 class="text-h4 font-weight-light text-orange mb-2">
+            <router-link class="card-title" :to="'/products/' + _id" >{{ name }}</router-link>
+          </h3>
+
+          <div class="font-weight-light text-h6 mb-2">
+            {{ description }}
+          </div>
+
+        </v-card-text>
+        <v-card-actions class="btn">ㄋ
+      <v-btn prepend-icon="mdi-cart" @click="addCart" :loading="loading">加入購物車</v-btn>
+    </v-card-actions>
+      </v-card>
+    </v-hover>
+  </div>
 </template>
 
 <script setup>
@@ -45,14 +50,12 @@
 </script>
 
 <style lang="scss" scoped>
-  .v-card.on-hover.v-theme--dark {
-    background-color: rgba(255, 255, 255, 0.8); // 十六進制顏色轉為 RGB 格式
-
-    > .v-card__text {
-      color: #000;
-    }
-  }
-  .bg{
-    background-color: #f5f5f5;
+   .v-card--reveal {
+    align-items: center;
+    bottom: 0;
+    justify-content: center;
+    opacity: 0.9;
+    position: absolute;
+    width: 100%;
   }
 </style>

@@ -21,6 +21,15 @@
             <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-1.png"></v-img>
           </swiper-slide>
           <swiper-slide class="img-box">
+            <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-10.png"></v-img>
+          </swiper-slide>
+          <swiper-slide class="img-box">
+            <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-11.png"></v-img>
+          </swiper-slide>
+          <swiper-slide class="img-box">
+            <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-12.png"></v-img>
+          </swiper-slide>
+          <swiper-slide class="img-box">
             <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-2.png"></v-img>
           </swiper-slide>
           <swiper-slide class="img-box">
@@ -45,17 +54,10 @@
           <swiper-slide class="img-box">
             <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-9.png"></v-img>
           </swiper-slide>
-          <swiper-slide class="img-box">
-            <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-10.png"></v-img>
-          </swiper-slide>
-          <swiper-slide class="img-box">
-            <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-11.png"></v-img>
-          </swiper-slide>
-          <swiper-slide class="img-box">
-            <v-img class="img" src="../assets/onlineWorships/onlineWorshipProduct-12.png"></v-img>
-          </swiper-slide>
+
         </swiper>
       </v-col>
+      <v-btn class="btn" @click="resetImages" >重置位置</v-btn>
     </v-row>
   </v-container>
 </template>
@@ -141,21 +143,29 @@ onMounted(() => {
     }
   })
 })
+
+function resetImages () {
+  const dropZone = document.getElementById('dropZone')
+  if (dropZone) {
+    dropZone.innerHTML = '' // 清空放置區域
+  }
+}
 </script>
 
 <style scoped lang="scss">
 @import "@/styles/settings"; // 導入變數文件
 #dropZone {
   width: 100%; /* 設定放置區域的寬度 */
-  height: 350px; /* 設定放置區域的高度 */
-  border: 2px solid $ehp-yellow;
+  height: 300px; /* 設定放置區域的高度 */
+  // border: 2px solid $ehp-yellow;
   position: relative; /* 允許內部元素定位 */
+  top: 40px;
 }
 .product-div {
   position: absolute;
-  top: 75%;
+  top: 71%;
   width: 100%;
-  border: 2px solid $ehp-yellow;
+  // border: 2px solid $ehp-yellow;
 }
 .mySwiper {
   width: 94%;
@@ -174,7 +184,11 @@ onMounted(() => {
   cursor: pointer;
   width: 90px !important;
   margin: auto;
-  border: 2px solid $ehp-yellow;
+  // border: 2px solid $ehp-yellow;
 }
-
+.btn{
+  position: absolute;
+  top: 3vw;
+  left: -9vw;
+}
 </style>

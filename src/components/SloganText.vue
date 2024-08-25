@@ -101,6 +101,16 @@ onMounted(() => {
   }
 }
 
+@media (max-width: 992px){
+  .container>h2{
+    font-size: 1.5rem;
+}
+.flower,
+.grass {
+      width: 30%;
+      padding-bottom: 3rem;
+    }
+}
 // @media (max-width: 768px) {
 //   .container {
 //     h2 {

@@ -103,7 +103,11 @@ const checkout = async () => {
   })
 
   if (result.color === 'green') {
-    router.push('/orders')
+    if (user.isAdmin) {
+      console.log(user)
+
+      router.push('/admin/orders')
+    } else { router.push('/user/orders') }
   }
 
   loading.value = false

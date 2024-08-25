@@ -1,7 +1,7 @@
 <template>
 
 <div id="navbar" :class="{ 'hidden-navbar': isHidden }"></div>
-  <v-container fluid class="text-black bg-img">
+  <v-container fluid class="text-black bg-img container100">
     <div class="container">
     <v-row class="bg box">
       <v-col cols="12">

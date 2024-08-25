@@ -42,12 +42,15 @@ const avatar = computed(() => {
 // .v-main {
 //   backgrosund: url('../assets/bg_black.png') repeat;
 // }
-.box{
-  margin: 30px !important;
+
+.box {
+  background: url('../assets/bg_black.png') repeat;
+  height: 100vh;
 }
+
 .bg{
   background: url('../assets/bg_black.png') repeat;
-  margin: 30px !important;
+  // margin: 30px !important;
 }
 
 </style>

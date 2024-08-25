@@ -1,18 +1,54 @@
 <template>
-  <v-card class="card">
-    <v-img class="" :src="image" cover height="200"></v-img>
-    <v-card-title class="text-center ">
-      <router-link class="card-title" :to="'/products/' + _id" >{{ name }}</router-link>
-    </v-card-title>
-    <v-card-subtitle>${{ price }}</v-card-subtitle>
-    <v-card-text>
-      {{ description }}
-    </v-card-text>
-    <v-card-actions class="btn">
-      <!-- <v-spacer></v-spacer> -->
+  <div>
+    <v-hover v-slot="{ isHovering, props }">
+      <v-card
+        class="mx-auto card"
+        color="grey-lighten-5"
+        max-width="500"
+        v-bind="props"
+      >
+      <router-link class="card-title" :to="'/products/' + _id" >
+        <v-img
+  :aspect-ratio="16/13"
+  :src="image"
+  cover
+>
+  <v-expand-transition>
+    <div
+      v-if="isHovering"
+      class="d-flex flex-column transition-fast-in-fast-out bg-orange-darken-2 v-card--reveal text-h2"
+      style="height: 100%;"
+    >
+      <div>
+        <p class="price-text">${{ price }}</p>
+      </div>
+      <br>
+      <div class="description-text">
+{{ description }}
+      </div>
+    </div>
+  </v-expand-transition>
+</v-img>
+
+        <v-card-text class="pt-6">
+          <!-- <div class="font-weight-light text-grey text-h6 mb-2">
+            For the perfect meal
+          </div> -->
+
+          <h3 class="text-h4 font-weight-light text-orange mb-2 text-center" >
+            <router-link class="card-title" :to="'/products/' + _id" >{{ name }}</router-link>
+          </h3>
+
+        </v-card-text>
+      </router-link>
+      <v-card-actions class="btn">
       <v-btn prepend-icon="mdi-cart" @click="addCart" :loading="loading">加入購物車</v-btn>
     </v-card-actions>
-  </v-card>
+      </v-card>
+
+    </v-hover>
+
+  </div>
 </template>
 
 <script setup>
@@ -57,10 +93,12 @@ const addCart = async () => {
 @import "@/styles/settings"; // 導入變數文件
 
 .card{
-  background: #bcbcbc;
+  background: #d0cece !important;
+  // width: 90%;
+  // height: 45vh;
 }
 .card-title{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: $ehp-black !important;
   text-decoration: none !important;
@@ -69,4 +107,27 @@ const addCart = async () => {
   display: flex;
   justify-content: center;
 }
+.v-card-text{
+height: 8vh;
+padding-top: 10px !important;
+}
+
+.v-card--reveal {
+    align-items: center;
+    bottom: 0;
+    justify-content: center;
+    opacity: 0.9;
+    position: absolute;
+    width: 100%;
+
+  }
+  p{
+    font-size: 2rem;
+    width: 100%;
+    padding: 3px;
+  }
+  .description-text{
+    font-size: 0.8rem;
+    padding: 15px !important;
+  }
 </style>
