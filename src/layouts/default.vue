@@ -24,10 +24,12 @@
   <v-app-bar :class="{'transparent-navbar': isTransparent, 'white-navbar': !isTransparent}">
     <v-container class="d-flex align-center">
       <!-- 手機版 logo------------------------------- -->
-      <div ma-3>
-        <a v-if="mobile" href="/"  class="logo">
+      <div ma-3 v-if="mobile" >
+        <!-- <a v-if="mobile" href="/"  class="logo">
         <v-img  width="250" height="64"  src="../assets/logo2.png"></v-img>
-        </a>
+        </a> -->
+        <router-link to="/" class="logo"><v-img  width="250" height="64"  src="../assets/logo2.png"></v-img></router-link>
+
       </div>
       <v-spacer />
       <template v-if="mobile">
@@ -51,7 +53,9 @@
                </v-row>
             </v-col>
             <!-- 中間logo -->
-            <a href="/"><v-img width="250" height="64" src="../assets/logo2.png"></v-img></a>
+            <!-- <a href="/"><v-img width="250" height="64" src="../assets/logo2.png"></v-img></a> -->
+            <router-link to="/" class="logo"><v-img  width="250" height="64"  src="../assets/logo2.png"></v-img></router-link>
+
             <!-- 電腦版選單右側 -->
             <v-col cols="auto">
               <v-row align="center" no-gutters>
