@@ -29,7 +29,7 @@
     <v-row>
       <v-col cols="12"  class="text-position" >
         <div class="text-English-position text-English ">Eternal Haven of Pikas</div>
-        <div class="text-Chinese text-black text-Chinese-position-p text-p"><p> &nbsp; 鼠兔永恆居所是一個專為鼠兔而設的長眠居所，我們提供最舒適的環境&nbsp; ，讓您的鼠兔能夠享受這美好世界。</p></div>
+        <div class="text-Chinese text-black text-Chinese-position-p"><p> &nbsp; 鼠兔永恆居所是一個專為鼠兔而設的長眠居所，我們提供最舒適的環境&nbsp; ，讓您的鼠兔能夠享受這美好世界。</p></div>
         </v-col>
     </v-row>
   </div>
@@ -130,17 +130,10 @@ definePage({
 
 <style>
 
-.text-English-position{
-  z-index: 99;
-  padding-top: 70px; /* 根據需要調整 */
-  font-size: 7vw;
-  font-weight:400;
-  text-shadow: 3px 3px 3px #afaeae;
-}
 /* 鼠兔永恆居所-標題-------------------------- */
 .title-Chinese-position{
   z-index: 99;
-  padding-top: 8%; /* 根據需要調整 */
+  padding-top: 8vh; /* 根據需要調整 */
   font-size: 3vw;
   position: relative;
 }
@@ -150,13 +143,22 @@ position: absolute;
 top:75%;
 }
 .text-Chinese-position-p{
-  position: absolute;
-  top: 260px;
+  position: relative;
+  top: 73px;
   z-index: 99;
   font-size: 1.5vw;
 
 }
-
+/* Eternal Haven of Pikas */
+.text-English-position{
+  z-index: 99;
+  /* padding-top: 70px; 根據需要調整 */
+  font-size: 7vw;
+  font-weight:400;
+  text-shadow: 3px 3px 3px #afaeae;
+  position: relative;
+  top: 80px;
+}
 .floating-content {
   position: absolute;
   top: 0px; /* 根據需要調整 */

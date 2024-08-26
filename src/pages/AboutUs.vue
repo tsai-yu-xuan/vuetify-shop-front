@@ -194,12 +194,12 @@ onMounted(() => {
     }
   })
   gsap.to('.mouseImg', {
-    yPercent: -70,
+    yPercent: -40,
     ease: 'none',
     marker: true,
     scrollTrigger: {
       trigger: '.mousediv',
-      start: '0% 40%',
+      start: '0% 80%',
       end: 'center top',
       scrub: true
       // markers: true // 顯示標記點
@@ -271,7 +271,7 @@ AOS.init()
   }
 }
 
-@media (min-width: 960px) and (max-width: 1279px) {
+@media (min-width: 880px) and (max-width: 1279px) {
   .tree::before {
     top: -4vw; /* 图片垂直位置 */
     left: 6vw; /* 图片水平位置 */
@@ -281,9 +281,9 @@ AOS.init()
   }
 }
 
-@media (min-width: 600px) and (max-width: 959px) {
+@media (min-width: 400px) and (max-width: 880px) {
   .tree::before {
-    top: 5vw; /* 图片垂直位置 */
+    top: 25vw; /* 图片垂直位置 */
     left: 40%; /* 图片水平位置 */
     width: 110vw; /* 图片宽度 */
     height: 700px; /* 图片高度 */

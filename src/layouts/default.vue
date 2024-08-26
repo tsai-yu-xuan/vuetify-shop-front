@@ -51,7 +51,7 @@
                </v-row>
             </v-col>
             <!-- 中間logo -->
-            <a href="/index"><v-img width="250" height="64" src="../assets/logo2.png"></v-img></a>
+            <a href="/"><v-img width="250" height="64" src="../assets/logo2.png"></v-img></a>
             <!-- 電腦版選單右側 -->
             <v-col cols="auto">
               <v-row align="center" no-gutters>

@@ -130,6 +130,13 @@ AOS.init()
   color: transparent;
   background-size: 30%;
 }
+
+@media (max-width: 700px) {
+  .about{
+    font-size: 5.5rem;
+  }
+
+}
 @media (max-width: 959px) {
   #text2::before{
     display: none; /* 顯示為區塊，使其在數字上方 */

@@ -73,7 +73,7 @@ onMounted(() => {
   width: 100%;
   margin: auto;
   color: $ehp-brown;
-  margin-top: 15rem;
+  margin-top: 15vh;
   margin-bottom: 1rem;
   padding-top: 1vw;
   // padding-bottom: vw;
@@ -111,62 +111,10 @@ onMounted(() => {
       padding-bottom: 3rem;
     }
 }
-// @media (max-width: 768px) {
-//   .container {
-//     h2 {
-//       font-size: 4vw;
-//       font-weight: 700;
-//       padding-bottom: 5vw;
-//       z-index: 99;
-//     }
-
-//     .img-two {
-//       width: 100%;
-//       display: flex;
-//       margin: auto;
-//       justify-content: space-between;
-
-//       img {
-//         position: relative;
-//         top: -60px;
-//         width: 50%;
-//       }
-//     }
-//   }
-// }
-
-// @media (min-width: 768px) {
-//   .container {
-//     h2 {
-//       font-size: 2rem;
-//       font-weight: 700;
-//       padding-bottom: 2vw;
-//       color: $ehp-brown;
-//       opacity: 0.5;
-//       z-index: 99;
-//     }
-
-//     .img-two {
-//       width: 60vw;
-//       display: flex;
-//       margin: auto;
-//       height: 50px;
-
-//       .flower {
-//         position: relative;
-//         top: -100px;
-//         left: -50px;
-//         width: 40%;
-//       }
-
-//       .grass {
-//         position: relative;
-//         top: -100px;
-//         right: -50px;
-//         width: 40%;
-//       }
-//     }
-//   }
-// }
+@media (max-width: 640px) {
+  .container {
+    margin-top: 5%;
+  }
+}
 
 </style>

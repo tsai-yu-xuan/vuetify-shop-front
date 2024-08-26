@@ -108,6 +108,11 @@ AOS.init()
   color: transparent;
   background-size: 30%;
 }
+@media (max-width: 700px) {
+  .mission{
+    font-size: 5.5rem;
+  }
+}
 .h2-div{
   display: flex;
   justify-content: end;
