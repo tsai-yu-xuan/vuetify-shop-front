@@ -135,7 +135,6 @@ AOS.init()
   .about{
     font-size: 5.5rem;
   }
-
 }
 @media (max-width: 959px) {
   #text2::before{

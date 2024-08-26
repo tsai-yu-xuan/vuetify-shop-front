@@ -114,10 +114,9 @@
               <v-col md="5" class="text-right  text-Chinese">鼠兔永恆居所</v-col>
               <v-col md="7" class="text-left  text-English">Eternal Haven of Pikas</v-col>
             </v-row>
-            <v-icon>mdi-facebook</v-icon>
-            <v-icon>mdi-twitter</v-icon>
-            <v-icon>mdi-linkedin</v-icon>
-            <v-icon>mdi-instagram</v-icon>
+            <v-row justify="center" class="mt-3 mb-3">
+              <v-col md="12" class="text-Chinese">/本網頁為作業之用，如有侵權敬請告知/</v-col>
+            </v-row>
           </v-col>
 
           <v-col cols="12" md="9" class="text-center">
