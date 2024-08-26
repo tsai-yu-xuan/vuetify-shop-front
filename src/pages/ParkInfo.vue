@@ -316,8 +316,8 @@ onMounted(() => {
       trigger: '.grass', // 觸發動畫的元素
       start: 'top 70%', // 當元素的頂部到達視口頂部時開始動畫
       end: 'bottom 80%', // 當元素的底部到達視口底部時結束動畫
-      scrub: 5, // 平滑滾動，值越大動畫越慢
-      markers: 'true'
+      scrub: 5 // 平滑滾動，值越大動畫越慢
+      // markers: 'true'
     },
     yPercent: -50, // 元素沿著 y 軸向上移動 50%
     xPercent: 10, // 元素沿著 x 軸向左移動 40%
